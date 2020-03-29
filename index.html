@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="styles/style.css" />
+		<title>GifOS</title>
+	</head>
+	<body>
+        <div class="main-title">
+            <p class="main-title__text">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
+        </div>
+        
+        <div class="container">
+            <nav class="nav">
+                <img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" />
+                
+                <ul class="nav__btns">
+                    <li class="nav__btn">Crear Guifos</li>
+                    <li>
+                        <ul class="nav__secondary-btn">
+                            <li class="nav__btn">Elegir tema</li>
+                            <li class="nav__btn nav__btn--dropdown"><img src="assets/svg/dropdown.svg" alt="dropdown"></li>
+                        </ul>
+                    </li>
+                    <li class="nav__link">Mis Guifos</li>
+                </ul>
+            </nav>
+            <div class="search">
+                <div class="search-title">
+                    <p class="search-title__text">Buscar</p>
+                </div>
+                <form class="search-content" action="POST">
+                    <label for="search-input"></label>
+                    <input class="search-input" id="search-input" type="text" placeholder="Busca gifs, temas, busca lo que quieras...">
+                    <button class="search-btn" type="button"><img src="assets/svg/lupa_inactive.svg" alt="lupa"> Buscar</button>
+                </form>
+            </div>
+            <main>
+                <section class="today">
+                    <header class="today__title">
+                        <p>Hoy te sugerimos:</p>
+                    </header>
+                    <div class="today__item"></div>
+                    <div class="today__item"></div>
+                    <div class="today__item"></div>
+                    <div class="today__item"></div>
+                </section>
+
+                <section class="tendencies">
+                    <header class="tendencies__title">
+                        <p>Tendencias:</p>
+                    </header>
+                    <div class="tendencies__item"></div>
+                    <div class="tendencies__item"></div>
+                    <div class="tendencies__item"></div>
+                    <div class="tendencies__item"></div>
+                </section>
+            </main>
+        </body>
+    </div>
+</html>

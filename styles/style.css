@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #110038;
+  text-decoration: none;
+}
+
+label {
+  display: none;
+}
+
+body {
+  background: #fff3fd;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.main-title {
+  height: 23px;
+  width: 100%;
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  -webkit-box-shadow: inset 1px 1px #ffffff, inset -1px -1px #110038;
+          box-shadow: inset 1px 1px #ffffff, inset -1px -1px #110038;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-title__text {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-size: 0.75em;
+  line-height: 1em;
+  margin-left: 7px;
+}
+
+.container {
+  margin: auto;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 35px;
+  margin-bottom: 16px;
+}
+
+.nav__logo {
+  margin: 8px 6.3px;
+}
+
+.nav__btns {
+  width: 419px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav__btn {
+  height: 36px;
+  width: 144px;
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset 1px 1px #ffffff, inset -1px -1px #997d97;
+          box-shadow: inset 1px 1px #ffffff, inset -1px -1px #997d97;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #110038;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.125em;
+}
+
+.nav__btn--dropdown {
+  width: 36px;
+}
+
+.nav__secondary-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.125em;
+}
+
+.search {
+  height: 99px;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+          box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+}
+
+.search-title {
+  height: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  margin: 2px;
+  position: relative;
+  top: 2px;
+}
+
+.search-title__text {
+  margin-left: 6px;
+  color: #ffffff;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 0.875em;
+  line-height: 1.125em;
+  font-weight: 700;
+}
+
+.search-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 12px 18px 12px 15px;
+}
+
+.search-input {
+  height: 48px;
+  width: 1057px;
+  padding: 0 16px;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset 2px 2px #000000, inset -2px -2px #e6e6e6;
+          box-shadow: inset 2px 2px #000000, inset -2px -2px #e6e6e6;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1em;
+  line-height: 1.375em;
+  color: #b4b4b4;
+}
+
+.search-btn {
+  width: 102px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset 1px 1px #ffffff, inset -1px -1px #b4b4b4;
+          box-shadow: inset 1px 1px #ffffff, inset -1px -1px #b4b4b4;
+  color: #b4b4b4;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 1em;
+  line-height: 1.125em;
+}
+
+.today {
+  height: 32px;
+  margin: 64px 0 16px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  -webkit-box-shadow: inset 2px 2px #997d97, inset -2px -2px #e6dce4;
+          box-shadow: inset 2px 2px #997d97, inset -2px -2px #e6dce4;
+}
+
+.today__title {
+  padding: 0 7px;
+  color: #110038;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-size: 0.875em;
+  line-height: 1.125em;
+}
+/*# sourceMappingURL=style.css.map */
