@@ -134,16 +134,98 @@
 }
 
 .today {
-	height: 32px;
-	margin: 64px 0 16px 0;
-	display: flex;
-	align-items: center;
-	background: #fffafe;
-	border: 1px solid #e6bbe2;
-	box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
+	margin-top: 64px;
 
 	&__title {
+		height: 32px;
 		padding: 0 7px;
+		margin-bottom: 16px;
+		display: flex;
+		align-items: center;
+		background: #fffafe;
+		border: 1px solid #e6bbe2;
+		box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
+		color: $color-darkblue;
+		font-family: $font-primary;
+		font-weight: 400;
+		font-size: $font-14;
+		line-height: $font-18;
+	}
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__item {
+		width: 288px;
+		height: 313px;
+		background: #e6e6e6;
+		box-shadow: inset 2px 2px $color-white, inset -2px -2px #b4b4b4;
+	}
+}
+
+.item {
+	&__header {
+		height: 24px;
+		margin: 0 2px;
+		display: flex;
+		align-items: center;
+		background: $color-gradient-day;
+		position: relative;
+		top: 2px;
+
+		&__text {
+			color: $color-white;
+			font-family: $font-primary;
+			font-size: $font-14;
+			font-weight: 700;
+			line-height: $font-18;
+		}
+	}
+
+	&__img {
+		width: 280px;
+		height: 280px;
+		position: relative;
+		top: 4px;
+		left: 4px;
+		z-index: 1;
+	}
+
+	&__btn {
+		width: 81px;
+		height: 34px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		bottom: 46px;
+		left: 11px;
+		z-index: 2;
+		background: $color-blue;
+		border: 1px solid #4c2f99;
+		box-shadow: inset 2px 2px $color-white, inset -2px -2px #284f99;
+		color: $color-white;
+		font-family: $font-primary;
+		font-size: $font-14;
+		font-weight: 400;
+		line-height: $font-18;
+	}
+}
+
+.tendencies {
+	margin-top: 64px;
+
+	&__title {
+		height: 32px;
+		padding: 0 7px;
+		margin-bottom: 16px;
+		display: flex;
+		align-items: center;
+		background: #fffafe;
+		border: 1px solid #e6bbe2;
+		box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
 		color: $color-darkblue;
 		font-family: $font-primary;
 		font-weight: 400;
