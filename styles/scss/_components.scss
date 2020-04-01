@@ -168,19 +168,27 @@
 .item {
 	&__header {
 		height: 24px;
-		margin: 0 2px;
+		margin: 0 4px;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
 		background: $color-gradient-day;
 		position: relative;
 		top: 2px;
 
 		&__text {
+			margin: 0 3px;
 			color: $color-white;
 			font-family: $font-primary;
 			font-size: $font-14;
 			font-weight: 700;
 			line-height: $font-18;
+		}
+
+		&__img {
+			width: 16px;
+			height: 14px;
+			margin: 0 4px;
 		}
 	}
 

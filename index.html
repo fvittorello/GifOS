@@ -8,86 +8,110 @@
 		<title>GifOS</title>
 	</head>
 	<body>
-        <div class="main-title">
-            <p class="main-title__text">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p>
-        </div>
-        
-        <div class="container">
-            <nav class="nav">
-                <img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" />
-                
-                <ul class="nav__btns">
-                    <li class="nav__btn">Crear Guifos</li>
-                    <li>
-                        <ul class="nav__secondary-btn">
-                            <li class="nav__btn">Elegir tema</li>
-                            <li class="nav__btn nav__btn--dropdown"><img src="assets/svg/dropdown.svg" alt="dropdown"></li>
-                        </ul>
-                    </li>
-                    <li class="nav__link">Mis Guifos</li>
-                </ul>
-            </nav>
-            <div class="search">
-                <div class="search-title">
-                    <p class="search-title__text">Buscar</p>
-                </div>
-                <form class="search-content" action="POST">
-                    <label for="search-input"></label>
-                    <input class="search-input" id="search-input" type="text" placeholder="Busca gifs, temas, busca lo que quieras...">
-                    <button class="search-btn" type="button"><img src="assets/svg/lupa_inactive.svg" alt="lupa"> Buscar</button>
-                </form>
-            </div>
-            <main>
-                <section class="today">
-                    <header class="today__title">
-                        <p>Hoy te sugerimos:</p>
-                    </header>
-                    <div class="today__container">
-                        <div class="today__item">
-                            <div class="item__header">
-                                <p class="item__header__text">#LoremIpsumDolor</p>
-                            </div>
-                            <img class="item__img" src="https://via.placeholder.com/280" alt="placeholder">
-                            <button class="item__btn" type="button">Ver más...</button>
-                        </div>
+		<div class="main-title">
+			<p class="main-title__text">
+				¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
+			</p>
+		</div>
 
-                        <div class="today__item">
-                            <div class="item__header">
-                                <p class="item__header__text">#LoremIpsumDolor</p>
-                            </div>
-                            <img class="item__img" src="https://via.placeholder.com/280" alt="placeholder">
-                            <button class="item__btn" type="button">Ver más...</button>
-                        </div>
+		<div class="container">
+			<nav class="nav">
+				<img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" />
 
-                        <div class="today__item">
-                            <div class="item__header">
-                                <p class="item__header__text">#LoremIpsumDolor</p>
-                            </div>
-                            <img class="item__img" src="https://via.placeholder.com/280" alt="placeholder">
-                            <button class="item__btn" type="button">Ver más...</button>
-                        </div>
+				<ul class="nav__btns">
+					<li class="nav__btn">Crear Guifos</li>
+					<li>
+						<ul class="nav__secondary-btn">
+							<li class="nav__btn">Elegir tema</li>
+							<li class="nav__btn nav__btn--dropdown"><img src="assets/svg/dropdown.svg" alt="dropdown" /></li>
+						</ul>
+					</li>
+					<li class="nav__link">Mis Guifos</li>
+				</ul>
+			</nav>
+			<div class="search">
+				<div class="search-title">
+					<p class="search-title__text">Buscar</p>
+				</div>
+				<form class="search-content" method="GET">
+					<label for="search-input"></label>
+					<input
+						class="search-input"
+						id="search-input"
+						type="text"
+						placeholder="Busca gifs, temas, busca lo que quieras..."
+					/>
+					<button class="search-btn" type="submit"><img src="assets/svg/lupa_inactive.svg" alt="lupa" /> Buscar</button>
+				</form>
+			</div>
+			<main>
+				<section class="today">
+					<header class="today__title">
+						<p>Hoy te sugerimos:</p>
+					</header>
+					<div class="today__container">
+						<div class="today__item">
+							<div class="item__header">
+								<p class="item__header__text">#LoremIpsumDolor</p>
+								<img class="item__header__img" src="assets/svg/button3.svg" alt="close button" />
+							</div>
+							<img class="item__img" src="https://via.placeholder.com/280" alt="placeholder" />
+							<button class="item__btn" type="button">Ver más...</button>
+						</div>
 
-                        <div class="today__item">
-                            <div class="item__header">
-                                <p class="item__header__text">#LoremIpsumDolor</p>
-                            </div>
-                            <img class="item__img" src="https://via.placeholder.com/280" alt="placeholder">
-                            <button class="item__btn" type="button">Ver más...</button>
-                        </div>
-                    </div>
-                    
-                </section>
+						<div class="today__item">
+							<div class="item__header">
+								<p class="item__header__text">#LoremIpsumDolor</p>
+								<img class="item__header__img" src="assets/svg/button3.svg" alt="close button" />
+							</div>
+							<img class="item__img" src="https://via.placeholder.com/280" alt="placeholder" />
+							<button class="item__btn" type="button">Ver más...</button>
+						</div>
 
-                <section class="tendencies">
-                    <header class="tendencies__title">
-                        <p>Tendencias:</p>
-                    </header>
-                    <div class="tendencies__item"></div>
-                    <div class="tendencies__item"></div>
-                    <div class="tendencies__item"></div>
-                    <div class="tendencies__item"></div>
-                </section>
-            </main>
-        </body>
-    </div>
+						<div class="today__item">
+							<div class="item__header">
+								<p class="item__header__text">#LoremIpsumDolor</p>
+								<img class="item__header__img" src="assets/svg/button3.svg" alt="close button" />
+							</div>
+							<img class="item__img" src="https://via.placeholder.com/280" alt="placeholder" />
+							<button class="item__btn" type="button">Ver más...</button>
+						</div>
+
+						<div class="today__item">
+							<div class="item__header">
+								<p class="item__header__text">#LoremIpsumDolor</p>
+								<img class="item__header__img" src="assets/svg/button3.svg" alt="close button" />
+							</div>
+							<img class="item__img" src="https://via.placeholder.com/280" alt="placeholder" />
+							<button class="item__btn" type="button">Ver más...</button>
+						</div>
+					</div>
+				</section>
+
+				<section class="tendencies">
+					<header class="tendencies__title">
+						<p>Tendencias:</p>
+					</header>
+					<div class="tendencies__item"></div>
+					<div class="tendencies__item"></div>
+					<div class="tendencies__item"></div>
+					<div class="tendencies__item"></div>
+				</section>
+
+				<section class="results">
+					<header class="results-title">
+						<p>Ejemplo de búsqueda (resultados)</p>
+					</header>
+					<div class="results-container">
+						<div class="results-item">
+							<img class="results-item__img" src="" alt="" />
+							<div class="results-item__text">text content test</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script src="main.js"></script>
+	</body>
 </html>

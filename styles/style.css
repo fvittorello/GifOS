@@ -264,10 +264,13 @@ body {
 
 .item__header {
   height: 24px;
-  margin: 0 2px;
+  margin: 0 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -278,11 +281,18 @@ body {
 }
 
 .item__header__text {
+  margin: 0 3px;
   color: #ffffff;
   font-family: "Chakra Petch", sans-serif;
   font-size: 0.875em;
   font-weight: 700;
   line-height: 1.125em;
+}
+
+.item__header__img {
+  width: 16px;
+  height: 14px;
+  margin: 0 4px;
 }
 
 .item__img {
