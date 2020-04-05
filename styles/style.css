@@ -26,10 +26,6 @@ body {
   background: #fff3fd;
 }
 
-.container {
-  max-width: 1200px;
-}
-
 .main-title {
   height: 23px;
   width: 100%;
@@ -57,6 +53,7 @@ body {
 }
 
 .container {
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -220,11 +217,13 @@ body {
   line-height: 1.125em;
 }
 
-.today {
+.tendencies,
+.today,
+.results {
   margin-top: 64px;
 }
 
-.today__title {
+.section-header {
   height: 32px;
   padding: 0 7px;
   margin-bottom: 16px;
@@ -262,7 +261,7 @@ body {
           box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
 }
 
-.item__header {
+.item-header {
   height: 24px;
   margin: 0 4px;
   display: -webkit-box;
@@ -280,7 +279,7 @@ body {
   top: 2px;
 }
 
-.item__header__text {
+.item-header__text {
   margin: 0 3px;
   color: #ffffff;
   font-family: "Chakra Petch", sans-serif;
@@ -289,7 +288,7 @@ body {
   line-height: 1.125em;
 }
 
-.item__header__img {
+.item-header__img {
   width: 16px;
   height: 14px;
   margin: 0 4px;
@@ -331,28 +330,65 @@ body {
   line-height: 1.125em;
 }
 
-.tendencies {
-  margin-top: 64px;
-}
-
-.tendencies__title {
-  height: 32px;
-  padding: 0 7px;
-  margin-bottom: 16px;
+.gif {
+  width: 294px;
+  height: 304px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 8px;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+          box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+}
+
+.gif:hover .gif__text {
+  visibility: visible;
+}
+
+.gif__img {
+  width: 286px;
+  height: 296px;
+  position: relative;
+  margin: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.gif__text {
+  width: 286px;
+  height: 24px;
+  position: absolute;
+  bottom: 0px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #fffafe;
-  border: 1px solid #e6bbe2;
-  -webkit-box-shadow: inset 2px 2px #997d97, inset -2px -2px #e6dce4;
-          box-shadow: inset 2px 2px #997d97, inset -2px -2px #e6dce4;
-  color: #110038;
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  margin: 0 4px 4px 4px;
+  color: #ffffff;
+  padding: 0 4px;
   font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 0.875em;
-  line-height: 1.125em;
+  line-height: 1.5em;
+  visibility: hidden;
+}
+
+.tendencies-container,
+.results-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=style.css.map */

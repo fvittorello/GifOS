@@ -18,6 +18,7 @@
 }
 
 .container {
+	max-width: 1200px;
 	margin: auto;
 }
 
@@ -133,25 +134,29 @@
 	}
 }
 
-.today {
+.tendencies,
+.today,
+.results {
 	margin-top: 64px;
+}
 
-	&__title {
-		height: 32px;
-		padding: 0 7px;
-		margin-bottom: 16px;
-		display: flex;
-		align-items: center;
-		background: #fffafe;
-		border: 1px solid #e6bbe2;
-		box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
-		color: $color-darkblue;
-		font-family: $font-primary;
-		font-weight: 400;
-		font-size: $font-14;
-		line-height: $font-18;
-	}
+.section-header {
+	height: 32px;
+	padding: 0 7px;
+	margin-bottom: 16px;
+	display: flex;
+	align-items: center;
+	background: #fffafe;
+	border: 1px solid #e6bbe2;
+	box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
+	color: $color-darkblue;
+	font-family: $font-primary;
+	font-weight: 400;
+	font-size: $font-14;
+	line-height: $font-18;
+}
 
+.today {
 	&__container {
 		display: flex;
 		justify-content: space-between;
@@ -166,7 +171,7 @@
 }
 
 .item {
-	&__header {
+	&-header {
 		height: 24px;
 		margin: 0 4px;
 		display: flex;
@@ -222,22 +227,51 @@
 	}
 }
 
-.tendencies {
-	margin-top: 64px;
+// GIFS FORMATTING (RESUTLS AND TENDENCIES) ---------------------------------------------
 
-	&__title {
-		height: 32px;
-		padding: 0 7px;
-		margin-bottom: 16px;
-		display: flex;
-		align-items: center;
-		background: #fffafe;
-		border: 1px solid #e6bbe2;
-		box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
-		color: $color-darkblue;
-		font-family: $font-primary;
-		font-weight: 400;
-		font-size: $font-14;
-		line-height: $font-18;
+.gif {
+	width: 294px;
+	height: 304px;
+	display: flex;
+	margin-bottom: 8px;
+	position: relative;
+	justify-content: space-between;
+	background: #e6e6e6;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px #b4b4b4;
+
+	&:hover .gif__text {
+		visibility: visible;
 	}
+
+	&__img {
+		width: 286px;
+		height: 296px;
+		position: relative;
+		margin: auto;
+		align-self: center;
+	}
+
+	&__text {
+		width: 286px;
+		height: 24px;
+		position: absolute;
+		bottom: 0px;
+		align-items: center;
+		background: $color-gradient-day;
+		margin: 0 4px 4px 4px;
+		color: $color-white;
+		padding: 0 4px;
+		font-family: $font-primary;
+		font-weight: 700;
+		font-size: $font-14;
+		line-height: $font-24;
+		visibility: hidden;
+	}
+}
+
+.tendencies-container,
+.results-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }
