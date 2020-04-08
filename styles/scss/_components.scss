@@ -194,6 +194,7 @@
 			width: 16px;
 			height: 14px;
 			margin: 0 4px;
+			cursor: pointer;
 		}
 	}
 
@@ -224,6 +225,7 @@
 		font-size: $font-14;
 		font-weight: 400;
 		line-height: $font-18;
+		cursor: pointer;
 	}
 }
 
@@ -270,8 +272,127 @@
 }
 
 .tendencies-container,
-.results-container {
+.results-container,
+.saved-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}
+
+// CREATE GIFOS		--------------------------------------------------------------------
+
+.create-gifos {
+	margin-top: 75px;
+	margin-bottom: 153px;
+}
+
+.create-window {
+	height: 386px;
+	width: 684px;
+	position: relative;
+	margin: auto;
+	background: $color-softgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px #b4b4b4;
+
+	&__title {
+		height: 24px;
+		width: 678px;
+		position: relative;
+		top: 3px;
+		background: $color-gradient-day;
+		margin: 3px 3px;
+		color: $color-white;
+		font-family: $font-primary;
+		font-weight: 700;
+		font-size: $font-14;
+		line-height: $font-24;
+		padding-left: 4px;
+	}
+
+	&__icon {
+		position: relative;
+		top: 30px;
+		left: 25px;
+	}
+
+	&__header {
+		margin-left: 73px;
+		color: $color-darkblue;
+		font-family: $font-primary;
+		font-weight: 700;
+		font-size: $font-16;
+		line-height: $font-22;
+	}
+
+	&__text {
+		margin: 14px 93px 0px 73px;
+		color: $color-darkblue;
+		font-family: $font-primary;
+		font-weight: 400;
+		font-size: $font-14;
+		line-height: $font-20;
+	}
+
+	&__buttons {
+		display: flex;
+		position: absolute;
+		bottom: 36px;
+		right: 36px;
+	}
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.capture-window {
+	height: 548px;
+	width: 860px;
+	position: relative;
+	display: flex;
+	margin: auto;
+	padding: 0 13px 0 4px;
+	background: $color-softgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px #b4b4b4;
+
+	&__title {
+		height: 24px;
+		width: 854px;
+		padding: 0 10px 0 4px;
+		position: absolute;
+		top: 3px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: $color-gradient-day;
+		color: $color-white;
+		font-family: $font-primary;
+		font-weight: 700;
+		font-size: $font-14;
+		line-height: $font-18;
+	}
+
+	&__display {
+		width: 838px;
+		height: 440px;
+		margin: 35px 1px 21px 8px;
+		border: 2px solid #979797;
+		box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
+		padding: 3px;
+	}
+
+	&__buttons {
+		display: flex;
+		position: absolute;
+		bottom: 16px;
+		right: 16px;
+	}
+}
+
+.btn-small {
+	width: 36px;
 }

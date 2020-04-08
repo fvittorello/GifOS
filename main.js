@@ -6,6 +6,7 @@ const $USER_INPUT = document.querySelector('#search-input');
 const $TODAY_CONTAINER = document.querySelector('.today__container');
 const $TRENDINGS_CONTAINER = document.querySelector('.tendencies-container');
 const $RESULTS_CONTAINER = document.querySelector('.results-container');
+const $SAVED_CONTAINER = document.querySelector('.saved-container');
 
 function cleanSearchInput() {
 	$USER_INPUT.value = '';
@@ -100,6 +101,26 @@ function createTrendingItem(imageSrc, url, title, gifHeight, gifWidth) {
 	$div.appendChild($img);
 	$div.appendChild($div2);
 	$TRENDINGS_CONTAINER.appendChild($div);
+}
+
+function createSavedItem(imageSrc, url, title, gifHeight, gifWidth) {
+	const $div = document.createElement('div');
+	$div.className = 'results-item gif';
+
+	const $img = document.createElement('img');
+	$img.className = 'gif__img';
+	$img.src = imageSrc;
+
+	const $div2 = document.createElement('div');
+	$div2.className = 'gif__text';
+
+	const $p = document.createElement('p');
+	$p.textContent = title;
+
+	$div2.appendChild($p);
+	$div.appendChild($img);
+	$div.appendChild($div2);
+	$SAVED_CONTAINER.appendChild($div);
 }
 
 function hideSuggestions() {
