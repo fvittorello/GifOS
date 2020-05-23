@@ -1,3 +1,5 @@
+'use strict';
+
 const API_KEY = '8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc';
 
 const $SEARCH_BTN = document.querySelector('.search-btn');
@@ -228,6 +230,26 @@ $SEARCH_BTN.addEventListener('click', function (event) {
 refreshSuggestions();
 fetchTrendings();
 
+/*
+TESTEO para agregar onClick a los items random
+
+setTimeout(function () {
+	const $TODAY_ITEMS = document.querySelectorAll('.item-header__img');
+	if ($TODAY_ITEMS.length >= 4) {
+		console.log($TODAY_ITEMS);
+
+		$TODAY_ITEMS.forEach((element) =>
+			element.addEventListener('click', (e) => {
+				console.log(e);
+			})
+		);
+	} else {
+		console.log('todavia no son 4');
+	}
+}, 500);
+
+*/
+
 /* 
 -ENDPOINTS-
 	Search:
@@ -244,4 +266,5 @@ fetchTrendings();
 
 	Get by IDs (comma separated):
 	https://api.giphy.com/v1/gifs/?api_key=8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc
+
 */
