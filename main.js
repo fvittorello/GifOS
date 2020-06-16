@@ -1,17 +1,30 @@
 'use strict';
 
 const API_KEY = '8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc';
+const AUTOCOMPLETE_LIMIT = 5;
+const SUGGESTION_TAGS_LIMIT = 5;
 
 const $SEARCH_BTN = document.querySelector('.search-btn');
 const $USER_INPUT = document.querySelector('#search-input');
 
 const $TODAY_CONTAINER = document.querySelector('.today__container');
 const $TRENDINGS_CONTAINER = document.querySelector('.tendencies-container');
+const $RESULTS_SECTION = document.querySelector('.results');
 const $RESULTS_CONTAINER = document.querySelector('.results-container');
 const $SAVED_CONTAINER = document.querySelector('.saved-container');
+const $AUTOCOMPLETE_CONTAINER = document.querySelector('.autocomplete');
+const $RELATED_CONTAINER = document.querySelector('.related');
+const $RESULTS_TITLE = document.querySelector('.results-title');
 
-function cleanSearchInput() {
-	$USER_INPUT.value = '';
+const $DROPDOWN_HANDLER = document.querySelector('.nav__secondary-btn');
+const $DROPDOWN_CONTAINER = document.querySelector('.nav__dropdown');
+
+function gifWidthAdapter(parentTag, childTag, childTag2, height, width) {
+	if (width >= 1.5 * height) {
+		childTag.classList.add('child-wide-format');
+		childTag2.classList.add('child-wide-format');
+		parentTag.classList.add('parent-wide-format');
+	}
 }
 
 function createResultItem(imageSrc, url, title, gifHeight, gifWidth) {
@@ -28,24 +41,13 @@ function createResultItem(imageSrc, url, title, gifHeight, gifWidth) {
 	const $p = document.createElement('p');
 	$p.textContent = title;
 
+	gifWidthAdapter($div, $img, $div2, gifHeight, gifWidth);
+
 	$div2.appendChild($p);
 	$div.appendChild($img);
 	$div.appendChild($div2);
 	$RESULTS_CONTAINER.appendChild($div);
 }
-
-/* 
-
-<div class="results-container">
-	<div class="results-item gif">
-		<img class="gif__img" src="" alt="" />
-		<div class="gif__text">
-			<p>text content test</p>
-		</div>
-	</div>
-</div>
-
-*/
 
 function createSuggestionItem(imageSrc, url, title) {
 	const $div = document.createElement('div');
@@ -85,6 +87,38 @@ function createSuggestionItem(imageSrc, url, title) {
 	$TODAY_CONTAINER.appendChild($div);
 }
 
+function createAutocompleteItem(tags) {
+	const $button = document.createElement('button');
+	$button.className = 'btn-adaptable-secondary autocomplete-tag';
+	$button.type = 'button';
+	$button.textContent = `${tags}`;
+
+	$button.addEventListener('click', function () {
+		wipePreviousSearchItems();
+		hideTrendings();
+		hideSuggestions();
+		fetchUserInput(this.textContent);
+		wipeSearchInput();
+		autocompleteVisibility();
+	});
+
+	$AUTOCOMPLETE_CONTAINER.appendChild($button);
+}
+
+function createSuggestionTag(tags) {
+	const $button = document.createElement('button');
+	$button.className = 'related__tag';
+	$button.type = 'button';
+	$button.textContent = `${tags}`;
+
+	$button.addEventListener('click', function () {
+		wipePreviousSearchItems();
+		fetchUserInput(this.textContent);
+	});
+
+	$RELATED_CONTAINER.appendChild($button);
+}
+
 function createTrendingItem(imageSrc, url, title, gifHeight, gifWidth) {
 	const $div = document.createElement('div');
 	$div.className = 'tendencies-item gif';
@@ -99,10 +133,16 @@ function createTrendingItem(imageSrc, url, title, gifHeight, gifWidth) {
 	const $p = document.createElement('p');
 	$p.textContent = title;
 
+	gifWidthAdapter($div, $img, $div2, gifHeight, gifWidth);
+
 	$div2.appendChild($p);
 	$div.appendChild($img);
 	$div.appendChild($div2);
 	$TRENDINGS_CONTAINER.appendChild($div);
+}
+
+function modifyResultsTitle(text) {
+	$RESULTS_TITLE.innerHTML = `<p>${text} (resultados)</p>`;
 }
 
 function createSavedItem(imageSrc, url, title, gifHeight, gifWidth) {
@@ -123,38 +163,82 @@ function createSavedItem(imageSrc, url, title, gifHeight, gifWidth) {
 	$div.appendChild($img);
 	$div.appendChild($div2);
 	$SAVED_CONTAINER.appendChild($div);
+
+	// OTRA OPCION
+	// $div.innerHTML = `<div class="results-item gif"><img class="gif__img" src="${imageSrc}"><div class="img__text"><p>${title}</p></div></div>`;
 }
 
 function hideSuggestions() {
 	const $suggestions = document.querySelector('.today');
 	$suggestions.style.display = 'none';
+	if (!$suggestions.classList.contains('hidden')) {
+		$suggestions.classList.add('hidden');
+	}
 }
 
 function hideTrendings() {
 	const $trendings = document.querySelector('.tendencies');
-	$trendings.style.display = 'none';
-}
-
-function cleanPreviousSuggestions() {
-	const $suggestions = document.querySelectorAll('.today__item');
-	for (let i = 0; i < $suggestions.length; i++) {
-		$suggestions[i].remove();
+	if (!$trendings.classList.contains('hidden')) {
+		$trendings.classList.add('hidden');
 	}
 }
 
-function cleanPreviousSearchItems() {
+function wipeSearchInput() {
+	$USER_INPUT.value = '';
+}
+
+function wipePreviousSuggestions() {
+	const $suggestionItems = document.querySelectorAll('.today__item');
+
+	$suggestionItems.forEach((item) => {
+		item.remove();
+	});
+}
+
+function wipePreviousSuggestionTags() {
+	const $suggestionTags = document.querySelectorAll('.related__tag');
+
+	$suggestionTags.forEach((tag) => {
+		tag.remove();
+	});
+}
+
+function wipePreviousSearchItems() {
 	const $results = document.querySelectorAll('.results-item');
 	for (let i = 0; i < $results.length; i++) {
 		$results[i].remove();
 	}
 }
 
-function refreshSuggestions() {
-	cleanPreviousSuggestions();
-	fetchSugestions(4);
+function wipePreviousAutocompleteItems() {
+	const $autocomplete_items = document.querySelectorAll('.autocomplete-tag');
+	for (let i = 0; i < $autocomplete_items.length; i++) {
+		$autocomplete_items[i].remove();
+	}
 }
 
-function fetchSugestions(numberOfSuggestions) {
+function resultsVisibility() {
+	if ($RESULTS_CONTAINER.children.length) {
+		$RESULTS_SECTION.classList.remove('hidden');
+	} else {
+		$RESULTS_SECTION.classList.add('hidden');
+	}
+}
+
+function autocompleteVisibility() {
+	if ($USER_INPUT.value == '') {
+		$AUTOCOMPLETE_CONTAINER.classList.add('hidden');
+	} else {
+		$AUTOCOMPLETE_CONTAINER.classList.remove('hidden');
+	}
+}
+
+function refreshSuggestions() {
+	wipePreviousSuggestions();
+	fetchSuggestions(4);
+}
+
+function fetchSuggestions(numberOfSuggestions) {
 	for (let i = 0; i < numberOfSuggestions; i++) {
 		fetch('https://api.giphy.com/v1/gifs/random?api_key=' + API_KEY + '&tag=')
 			.then((Response) => {
@@ -168,6 +252,7 @@ function fetchSugestions(numberOfSuggestions) {
 				createSuggestionItem(imageSrc, url, title);
 			})
 			.catch((error) => {
+				console.log(`Something went wrong on the fetchSuggestions`);
 				return error;
 			});
 	}
@@ -190,11 +275,15 @@ function fetchTrendings() {
 			}
 		})
 		.catch((error) => {
+			console.log(`Something went wrong on the fetchTrendings`);
 			return error;
 		});
 }
 
 function fetchUserInput(userInput, offset) {
+	if (!userInput) {
+		window.location.reload();
+	}
 	fetch('https://api.giphy.com/v1/gifs/search?api_key=' + API_KEY + '&q=' + userInput + '&limit=24&offset=' + offset)
 		.then((Response) => {
 			return Response.json();
@@ -210,45 +299,88 @@ function fetchUserInput(userInput, offset) {
 				createResultItem(imageSrc, url, title, gifHeight, gifWidth);
 			}
 		})
+		.then(() => {
+			resultsVisibility();
+			modifyResultsTitle(userInput);
+			fetchSuggestionTags(userInput);
+		})
 		.catch((error) => {
+			console.log(`Something went wrong on the fetchUserInput`);
 			return error;
 		});
 }
 
+function fetchAutocompleteTags(userInput) {
+	if (!userInput) {
+		return;
+	}
+	fetch('https://api.giphy.com/v1/gifs/search/tags?api_key=' + API_KEY + '&q=' + userInput)
+		.then((Response) => {
+			return Response.json();
+		})
+		.then((array) => {
+			wipePreviousAutocompleteItems();
+
+			if (array.data != []) {
+				for (let i = 0; i < array.data.length && i < AUTOCOMPLETE_LIMIT; i++) {
+					const name = array.data[i].name;
+
+					createAutocompleteItem(name);
+				}
+			}
+		});
+}
+
+function fetchSuggestionTags(userSearchInput) {
+	fetch(`https://api.giphy.com/v1/tags/related/${userSearchInput}?api_key=${API_KEY}`)
+		.then((Response) => {
+			return Response.json();
+		})
+		.then((array) => {
+			wipePreviousSuggestionTags();
+
+			if (array.data != []) {
+				for (let i = 0; i < array.data.length && i < SUGGESTION_TAGS_LIMIT; i++) {
+					const name = array.data[i].name;
+
+					createSuggestionTag(name);
+				}
+			}
+		})
+		.catch((error) => {
+			console.log(`Something went wrong on the fetchSuggestionTags`);
+			return error;
+		});
+}
+
+$DROPDOWN_HANDLER.addEventListener('click', function () {
+	if ($DROPDOWN_CONTAINER.classList.contains('hidden')) {
+		$DROPDOWN_CONTAINER.classList.remove('hidden');
+	} else {
+		$DROPDOWN_CONTAINER.classList.add('hidden');
+	}
+});
+
 $SEARCH_BTN.addEventListener('click', function (event) {
 	let userInput = $USER_INPUT.value;
 
-	cleanPreviousSearchItems();
+	wipePreviousSearchItems();
 	hideTrendings();
 	hideSuggestions();
 	fetchUserInput(userInput);
-	cleanSearchInput();
+	wipeSearchInput();
+	autocompleteVisibility();
 
 	event.preventDefault();
 });
 
+$USER_INPUT.addEventListener('input', function () {
+	fetchAutocompleteTags($USER_INPUT.value);
+	autocompleteVisibility();
+});
+
 refreshSuggestions();
 fetchTrendings();
-
-/*
-TESTEO para agregar onClick a los items random
-
-setTimeout(function () {
-	const $TODAY_ITEMS = document.querySelectorAll('.item-header__img');
-	if ($TODAY_ITEMS.length >= 4) {
-		console.log($TODAY_ITEMS);
-
-		$TODAY_ITEMS.forEach((element) =>
-			element.addEventListener('click', (e) => {
-				console.log(e);
-			})
-		);
-	} else {
-		console.log('todavia no son 4');
-	}
-}, 500);
-
-*/
 
 /* 
 -ENDPOINTS-

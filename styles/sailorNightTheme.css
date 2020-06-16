@@ -1,0 +1,51 @@
+body {
+  background: #fff3fd;
+}
+
+.main-title {
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  -webkit-box-shadow: inset 1px 1px #ffffff, inset -1px -1px #110038;
+          box-shadow: inset 1px 1px #ffffff, inset -1px -1px #110038;
+}
+
+.main-title__text {
+  color: #ffffff;
+}
+
+.search {
+  background: #e6e6e6;
+  -webkit-box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+          box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+}
+
+.search-title {
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+}
+
+.today__item {
+  background: #e6e6e6;
+  -webkit-box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+          box-shadow: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+}
+
+.item-header {
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+}
+
+.preview-bar {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset 2px 2px #000000, inset -2px -2px #fffcfc;
+          box-shadow: inset 2px 2px #000000, inset -2px -2px #fffcfc;
+}
+
+.preview-cell {
+  background: #999999;
+}
+
+.preview-cell-active {
+  background: #f7c9f3;
+}
+/*# sourceMappingURL=sailorNightTheme.css.map */

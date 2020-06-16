@@ -8,6 +8,8 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="stylesheet" href="styles/sailorDayTheme.css" />
+		<link rel="stylesheet" href="styles/sailorNightTheme.css" />
 		<title>GifOS</title>
 	</head>
 	<body>
@@ -19,17 +21,21 @@
 
 		<div class="container">
 			<nav class="nav">
-				<img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" />
+				<a href="index.html"><img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" /></a>
 
 				<ul class="nav__btns">
-					<li class="nav__btn">Crear Guifos</li>
+					<li><a class="nav__btn" href="mygifos.html">Crear Guifos</a></li>
 					<li>
 						<ul class="nav__secondary-btn">
 							<li class="nav__btn">Elegir tema</li>
 							<li class="nav__btn nav__btn--dropdown"><img src="assets/svg/dropdown.svg" alt="dropdown" /></li>
 						</ul>
+						<div class="nav__dropdown hidden">
+							<button class="btn-adaptable btn-theme" type="button"><span class="underline">S</span>ailor Day</button>
+							<button class="btn-adaptable btn-theme" type="button">Sailor Night</button>
+						</div>
 					</li>
-					<li class="nav__link">Mis Guifos</li>
+					<li class="nav__link"><span class="underline">M</span>is Guifos</li>
 				</ul>
 			</nav>
 			<div class="search">
@@ -42,11 +48,14 @@
 						class="search-input"
 						id="search-input"
 						type="text"
+						autocomplete="off"
 						placeholder="Busca gifs, temas, busca lo que quieras..."
 					/>
 					<button class="search-btn" type="submit"><img src="assets/svg/lupa_inactive.svg" alt="lupa" /> Buscar</button>
 				</form>
 			</div>
+			<div class="autocomplete hidden"></div>
+			<div class="related"></div>
 			<main>
 				<section class="today">
 					<header class="today-title section-header">
@@ -108,77 +117,11 @@
 					</div>
 				</section>
 
-				<section class="results">
+				<section class="results hidden">
 					<header class="results-title section-header">
 						<p>Ejemplo de búsqueda (resultados)</p>
 					</header>
-					<div class="results-container">
-						<!-- <div class="results-item gif">
-							<img class="gif__img" src="" alt="" />
-							<div class="gif__text">
-								<p>text content test</p>
-							</div>
-						</div> -->
-					</div>
-				</section>
-
-				<section class="create-gifos">
-					<div class="create-window">
-						<div class="create-window__title">
-							<p>Crear Guifos</p>
-						</div>
-						<img class="create-window__icon" src="assets/img/window_img.png" alt="Window icon" />
-						<h3 class="create-window__header">Aquí podrás crear tus propios guifos</h3>
-						<p class="create-window__text">
-							Crear tu <span class="bold italic">guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén
-							guifos personalizados. Los pasos para crear tu guifo son:
-						</p>
-						<p class="create-window__text">
-							<span class="bold">1)</span> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)
-						</p>
-						<p class="create-window__text"><span class="bold">2)</span> Capturar tu momento guifo</p>
-						<p class="create-window__text"><span class="bold">3)</span> Revisar el momento</p>
-						<p class="create-window__text"><span class="bold">4)</span> Listo para subir y compartir!</p>
-						<p class="create-window__text">
-							¿Quieres comenzar a crear tu <span class="bold italic">guifo</span> ahora?
-						</p>
-						<div class="create-window__buttons">
-							<button class="nav__btn" type="button">Cancelar</button>
-							<button class="nav__btn" type="button">Comenzar</button>
-						</div>
-					</div>
-
-					<div class="capture-window">
-						<div class="capture-window__title">
-							<p>Un Chequeo Antes de Empezar</p>
-							<img src="assets/svg/button3.svg" alt="cross button" />
-						</div>
-						<div class="capture-window__display">
-							<!-- <img src="" alt="imagen de test" /> -->
-							<video class="videoContainer" src="">no hay video</video>
-						</div>
-						<div class="capture-window__buttons">
-							<div class="counter">
-								<p>00:00:03:06</p>
-							</div>
-							<div class="nav__btn btn-small"><img src="assets/svg/camera.svg" alt="camera icon" /></div>
-							<button class="nav__btn" type="button">Capturar</button>
-						</div>
-					</div>
-				</section>
-
-				<section class="my-gifos">
-					<header class="my-gifos-title section-header">
-						<p>Mis guifos</p>
-					</header>
-					<div class="saved-container">
-						<!-- <div class="results-item gif">
-							<img class="gif__img" src="" alt="" />
-							<div class="gif__text">
-								<p>text content test</p>
-							</div>
-						</div> -->
-					</div>
+					<div class="results-container"></div>
 				</section>
 			</main>
 		</div>

@@ -1,6 +1,5 @@
 //  Color Pallete
-$color-grey: #e6e6e6;
-$color-lightgrey: #999999;
+$color-grey: #999999;
 $color-softgrey: #e6e6e6;
 $color-blue: #4180f6;
 $color-darkblue: #110038;
@@ -12,11 +11,29 @@ $color-softred: #ff6161;
 $color-red: #993a3a;
 $color-black: #000000;
 
+$color-deepblue: #284f99;
+$color-midgrey: #b4b4b4;
+$color-middarkgrey: #808080;
+$color-secondarywhite: #fff4fd;
+$color-tertiarywhite: #f0f0f0;
+$color-purple: #4c2f99;
+$color-background-white: #fff3fd;
+$color-highlight-white: #fffcfc;
+$color-pink-hover: #e6bbe2;
+
 $color-shadow-top: #8f8f8f;
 $color-shadow-top-secondary: #5c5c5c;
 
 $color-gradient-day: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
-$color-gradient-night: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+$color-gradient-night: linear-gradient(270deg, #ee2efe 0%, #2e32fb 100%);
+
+//  Box Shadow
+$BoxShadow-1: inset 1px 1px $color-white, inset -1px -1px $color-deadpink;
+$BoxShadow-2-bold: inset 2px 2px $color-white, inset -2px -2px $color-deepblue;
+$BoxShadow-3: inset 1px 1px $color-white, inset -1px -1px $color-midgrey;
+$BoxShadow-3-bold: inset 2px 2px $color-white, inset -2px -2px $color-midgrey;
+$BoxShadow-4: inset 1px 1px $color-white, inset -1px -1px $color-red;
+$BoxShadow-5-bold: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
 
 //  Fonts
 $font-primary: 'Chakra Petch', sans-serif;

@@ -1,0 +1,45 @@
+@import 'scss/variables';
+
+body {
+	background: #fff3fd;
+}
+
+.main-title {
+	background: $color-gradient-day;
+	box-shadow: inset 1px 1px $color-white, inset -1px -1px $color-darkblue;
+}
+
+.main-title__text {
+	color: $color-white;
+}
+
+.search {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.search-title {
+	background: $color-gradient-day;
+}
+
+.today__item {
+	background: #e6e6e6;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.item-header {
+	background: $color-gradient-day;
+}
+
+.preview-bar {
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-black, inset -2px -2px #fffcfc;
+}
+
+.preview-cell {
+	background: $color-grey;
+}
+
+.preview-cell-active {
+	background: $color-softpink;
+}
