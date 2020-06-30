@@ -1,34 +1,204 @@
 @import 'scss/variables';
 
 body {
-	background: #fff3fd;
+	background: $color-background-night;
+}
+
+.btn {
+	color: $color-white;
 }
 
 .main-title {
-	background: $color-gradient-day;
-	box-shadow: inset 1px 1px $color-white, inset -1px -1px $color-darkblue;
+	background: $color-gradient-night;
+	box-shadow: inset 0px 0px $color-white, inset 0px 0px $color-shadow-top;
 }
 
 .main-title__text {
 	color: $color-white;
 }
 
+.nav__dropdown {
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px #8f8f8f;
+}
+
+//	AGREGAR BOTONES	--------------------------------------
+.btn {
+	background: $color-night-pink-1;
+	border: 1px solid $color-darkblue;
+	box-shadow: inset 1px 1px $color-white, inset -1px -1px $color-night-pink-border-1;
+	color: $color-white;
+}
+
+.btn:hover {
+	background: $color-night-pink-hover;
+}
+
+.btn-link {
+	color: $color-white;
+}
+
+.btn-link:hover {
+	outline: dotted 1px $color-white;
+}
+
+.btn-search {
+	background: #ee3efe;
+	box-shadow: $BoxShadow-3;
+	color: $color-white;
+}
+
+.btn-related {
+	background: $color-midblue;
+	border: 1px solid #4c2f99;
+	box-shadow: inset 2px 2px #ffffff, inset -2px -2px #2124b3;
+	color: $color-white;
+}
+
+.btn-related:hover {
+	background: #2629cc;
+	box-shadow: inset 1px 1px #ffffff, inset -1px -1px #2124b3;
+}
+
+.btn-red {
+	background: $color-softred;
+	border: 1px solid $color-darkblue;
+	box-shadow: inset 1px 1px #ffffff, inset -1px -1px #993a3a;
+	color: $color-white;
+}
+
+.btn-red:hover {
+	background: $color-softred-hover;
+}
+
+.btn-white {
+	background: $color-darkblue;
+	border: 1px solid $color-midgrey;
+	box-shadow: inset 1px 1px $color-secondarywhite, inset -1px -1px $color-darkgrey;
+	color: $color-white;
+}
+
+.btn-white:hover {
+	background: $color-darkblue-hover;
+	outline: dotted 1px $color-white;
+}
+
+.btn-play:hover {
+	outline: none;
+}
+
+// --------------------------------------------------------
+
 .search {
-	background: $color-softgrey;
-	box-shadow: $BoxShadow-3-bold;
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px $color-shadow-top;
+}
+
+.search-input {
+	box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
 }
 
 .search-title {
-	background: $color-gradient-day;
+	background: $color-gradient-night;
+}
+
+.search-title__text {
+	color: $color-white;
+}
+
+.autocomplete {
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px $color-shadow-top;
+}
+
+.autocomplete-tag {
+	background: #cccccc;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px $color-midgrey;
+	border: solid 1px $color-middarkgrey;
+}
+
+.related__tag {
+	background: $color-midblue;
+	box-shadow: inset 1px 1px $color-white, inset -1px -1px $color-secondaryblue;
+	border: 1px solid $color-purple;
+	color: $color-white;
+}
+
+.section-header {
+	background: $color-white;
+	box-shadow: inset 1px 1px $color-darkblue, inset -2px -2px #e6dce4;
+	border: 1px solid $color-tertiaryblue;
+	color: $color-darkblue;
 }
 
 .today__item {
-	background: #e6e6e6;
-	box-shadow: $BoxShadow-3-bold;
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px $color-darkgrey;
+}
+
+.item__btn {
+	background: $color-midblue;
+	box-shadow: inset 1px 1px $color-white, inset -1px -1px $color-secondaryblue;
+	border: 1px solid $color-purple;
+	color: $color-white;
 }
 
 .item-header {
-	background: $color-gradient-day;
+	background: $color-gradient-night;
+}
+
+.item-header__text {
+	color: $color-white;
+}
+
+.gif {
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px #5c5c5c;
+}
+
+.gif__text {
+	background: $color-gradient-night;
+	color: $color-white;
+}
+
+.create-window {
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px $color-shadow-top;
+}
+
+.create-window__title {
+	background: $color-gradient-night;
+	color: $color-white;
+}
+
+.capture-window {
+	background: $color-midgrey;
+	box-shadow: inset 2px 2px $color-white, inset -2px -2px $color-shadow-top;
+}
+
+.capture-window__title {
+	background: $color-gradient-night;
+	color: $color-white;
+}
+
+.capture-window__display {
+	box-shadow: inset 2px 2px $color-black, inset -1px -1px $color-shadow-top;
+	border: 1px solid $color-darkgrey;
+}
+
+.success-window-container {
+	background: $color-midgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.success-window__title {
+	background: $color-gradient-night;
+	color: $color-white;
+}
+
+.success-gif-container {
+	box-shadow: inset 2px 2px $color-black, inset -1px -1px $color-shadow-top;
+	border: 1px solid $color-darkgrey;
 }
 
 .preview-bar {

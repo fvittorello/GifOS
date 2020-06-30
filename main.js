@@ -1,28 +1,90 @@
 'use strict';
 
-const API_KEY = '8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc';
-const AUTOCOMPLETE_LIMIT = 5;
-const SUGGESTION_TAGS_LIMIT = 5;
-
-const $SEARCH_BTN = document.querySelector('.search-btn');
+const $SEARCH_BTN = document.querySelector('.btn-search');
 const $USER_INPUT = document.querySelector('#search-input');
-
+const $RESULTS_SECTION = document.querySelector('.results');
+const $SUGGESTIONS_SECTION = document.querySelector('.today');
+const $TRENDINGS_SECTION = document.querySelector('.tendencies');
+const $MY_GIFOS_SECTION = document.querySelector('.my-gifos');
 const $TODAY_CONTAINER = document.querySelector('.today__container');
 const $TRENDINGS_CONTAINER = document.querySelector('.tendencies-container');
-const $RESULTS_SECTION = document.querySelector('.results');
 const $RESULTS_CONTAINER = document.querySelector('.results-container');
 const $SAVED_CONTAINER = document.querySelector('.saved-container');
 const $AUTOCOMPLETE_CONTAINER = document.querySelector('.autocomplete');
 const $RELATED_CONTAINER = document.querySelector('.related');
+const $LOCAL_GIFS_CONTAINER = document.getElementById('loaded-gifs');
 const $RESULTS_TITLE = document.querySelector('.results-title');
-
-const $DROPDOWN_HANDLER = document.querySelector('.nav__secondary-btn');
 const $DROPDOWN_CONTAINER = document.querySelector('.nav__dropdown');
+const $MY_GIFOS_BTN = document.querySelector('#myGifos_btn');
+const $DAY_THEME_BTN = document.querySelector('#day-theme-btn');
+const $NIGHT_THEME_BTN = document.querySelector('#night-theme-btn');
+const $THEME_TAG = document.querySelector('#theme');
 
-function gifWidthAdapter(parentTag, childTag, childTag2, height, width) {
+const API_KEY = '8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc';
+const AUTOCOMPLETE_LIMIT = 5;
+const SUGGESTION_TAGS_LIMIT = 5;
+
+(function deleteCachedTheme() {
+	const link = document.querySelector('#cache');
+	link.remove();
+})();
+
+function hideElement(element) {
+	if (element.classList.contains('hidden')) {
+		return;
+	}
+	element.classList.add('hidden');
+}
+
+function showElement(element) {
+	if (!element.classList.contains('hidden')) {
+		return;
+	}
+	element.classList.remove('hidden');
+}
+
+function initializeTheme() {
+	const actualTheme = $THEME_TAG.attributes.href.textContent;
+	const check = localStorageThemeCheck();
+	if (actualTheme !== `styles/${check}.css`) {
+		$THEME_TAG.setAttribute('href', `styles/${check}.css`);
+	}
+}
+
+function localStorageThemeCheck() {
+	const themeSettings = localStorage.getItem('GifosThemePreference');
+	if (!themeSettings) {
+		localStorage.setItem('GifosThemePreference', 'sailorDayTheme');
+	}
+	return themeSettings || 'sailorDayTheme';
+}
+
+function loadFromLocal() {
+	let items = JSON.parse(localStorage.getItem('MisGuifos')) || [];
+
+	if (items === []) {
+		return console.log('Aún no hay gifs guardados!');
+	}
+
+	items.forEach((element) => {
+		fetch(`https://api.giphy.com/v1/gifs/${element}?api_key=${API_KEY}`)
+			.then((response) => {
+				return response.json();
+			})
+			.then((item) => {
+				const gif = item.data.images.original.url;
+				const title = item.data.title;
+				createLoadedGif(gif, title);
+			})
+			.catch((error) => {
+				console.log('Error al intentar el fetch de gifs guardados');
+				return error;
+			});
+	});
+}
+
+function gifWidthAdapter(parentTag, height, width) {
 	if (width >= 1.5 * height) {
-		childTag.classList.add('child-wide-format');
-		childTag2.classList.add('child-wide-format');
 		parentTag.classList.add('parent-wide-format');
 	}
 }
@@ -41,7 +103,7 @@ function createResultItem(imageSrc, url, title, gifHeight, gifWidth) {
 	const $p = document.createElement('p');
 	$p.textContent = title;
 
-	gifWidthAdapter($div, $img, $div2, gifHeight, gifWidth);
+	gifWidthAdapter($div, gifHeight, gifWidth);
 
 	$div2.appendChild($p);
 	$div.appendChild($img);
@@ -71,7 +133,7 @@ function createSuggestionItem(imageSrc, url, title) {
 
 	const $btn = document.createElement('button');
 	$btn.type = 'button';
-	$btn.className = 'item__btn';
+	$btn.className = 'btn btn-related item__btn';
 	$btn.textContent = 'Ver más...';
 
 	const $link = document.createElement('a');
@@ -95,8 +157,8 @@ function createAutocompleteItem(tags) {
 
 	$button.addEventListener('click', function () {
 		wipePreviousSearchItems();
-		hideTrendings();
-		hideSuggestions();
+		hideElement($TRENDINGS_SECTION);
+		hideElement($SUGGESTIONS_SECTION);
 		fetchUserInput(this.textContent);
 		wipeSearchInput();
 		autocompleteVisibility();
@@ -133,7 +195,7 @@ function createTrendingItem(imageSrc, url, title, gifHeight, gifWidth) {
 	const $p = document.createElement('p');
 	$p.textContent = title;
 
-	gifWidthAdapter($div, $img, $div2, gifHeight, gifWidth);
+	gifWidthAdapter($div, gifHeight, gifWidth);
 
 	$div2.appendChild($p);
 	$div.appendChild($img);
@@ -145,42 +207,24 @@ function modifyResultsTitle(text) {
 	$RESULTS_TITLE.innerHTML = `<p>${text} (resultados)</p>`;
 }
 
-function createSavedItem(imageSrc, url, title, gifHeight, gifWidth) {
+function createLoadedGif(localGif, tags) {
 	const $div = document.createElement('div');
-	$div.className = 'results-item gif';
+	$div.className = 'local-item gif parent-wide-format';
 
 	const $img = document.createElement('img');
 	$img.className = 'gif__img';
-	$img.src = imageSrc;
+	$img.src = localGif;
 
 	const $div2 = document.createElement('div');
 	$div2.className = 'gif__text';
 
 	const $p = document.createElement('p');
-	$p.textContent = title;
+	$p.textContent = tags;
 
 	$div2.appendChild($p);
 	$div.appendChild($img);
 	$div.appendChild($div2);
-	$SAVED_CONTAINER.appendChild($div);
-
-	// OTRA OPCION
-	// $div.innerHTML = `<div class="results-item gif"><img class="gif__img" src="${imageSrc}"><div class="img__text"><p>${title}</p></div></div>`;
-}
-
-function hideSuggestions() {
-	const $suggestions = document.querySelector('.today');
-	$suggestions.style.display = 'none';
-	if (!$suggestions.classList.contains('hidden')) {
-		$suggestions.classList.add('hidden');
-	}
-}
-
-function hideTrendings() {
-	const $trendings = document.querySelector('.tendencies');
-	if (!$trendings.classList.contains('hidden')) {
-		$trendings.classList.add('hidden');
-	}
+	$LOCAL_GIFS_CONTAINER.appendChild($div);
 }
 
 function wipeSearchInput() {
@@ -245,7 +289,7 @@ function fetchSuggestions(numberOfSuggestions) {
 				return Response.json();
 			})
 			.then((array) => {
-				const imageSrc = array.data.images.preview_webp.url;
+				const imageSrc = array.data.images.original.url;
 				const url = array.data.url;
 				const title = array.data.title;
 
@@ -265,11 +309,11 @@ function fetchTrendings() {
 		})
 		.then((array) => {
 			for (let i = 0; i < array.data.length; i++) {
-				const imageSrc = array.data[i].images.preview_webp.url;
+				const imageSrc = array.data[i].images.original.url;
 				const url = array.data[i].url;
 				const title = array.data[i].title;
-				const gifHeight = array.data[i].images.preview_webp.height;
-				const gifWidth = array.data[i].images.preview_webp.width;
+				const gifHeight = array.data[i].images.original.height;
+				const gifWidth = array.data[i].images.original.width;
 
 				createTrendingItem(imageSrc, url, title, gifHeight, gifWidth);
 			}
@@ -290,11 +334,11 @@ function fetchUserInput(userInput, offset) {
 		})
 		.then((array) => {
 			for (let i = 0; i < array.data.length; i++) {
-				const imageSrc = array.data[i].images.preview_webp.url;
+				const imageSrc = array.data[i].images.original.url;
 				const url = array.data[i].url;
 				const title = array.data[i].title;
-				const gifHeight = array.data[i].images.preview_webp.height;
-				const gifWidth = array.data[i].images.preview_webp.width;
+				const gifHeight = array.data[i].images.original.height;
+				const gifWidth = array.data[i].images.original.width;
 
 				createResultItem(imageSrc, url, title, gifHeight, gifWidth);
 			}
@@ -321,13 +365,16 @@ function fetchAutocompleteTags(userInput) {
 		.then((array) => {
 			wipePreviousAutocompleteItems();
 
-			if (array.data != []) {
+			if (array.data !== []) {
 				for (let i = 0; i < array.data.length && i < AUTOCOMPLETE_LIMIT; i++) {
 					const name = array.data[i].name;
 
 					createAutocompleteItem(name);
 				}
 			}
+		})
+		.catch((error) => {
+			console.log(`Something went wrong on the autocompleteTags fetch, ${error}`);
 		});
 }
 
@@ -339,7 +386,7 @@ function fetchSuggestionTags(userSearchInput) {
 		.then((array) => {
 			wipePreviousSuggestionTags();
 
-			if (array.data != []) {
+			if (array.data !== []) {
 				for (let i = 0; i < array.data.length && i < SUGGESTION_TAGS_LIMIT; i++) {
 					const name = array.data[i].name;
 
@@ -353,20 +400,13 @@ function fetchSuggestionTags(userSearchInput) {
 		});
 }
 
-$DROPDOWN_HANDLER.addEventListener('click', function () {
-	if ($DROPDOWN_CONTAINER.classList.contains('hidden')) {
-		$DROPDOWN_CONTAINER.classList.remove('hidden');
-	} else {
-		$DROPDOWN_CONTAINER.classList.add('hidden');
-	}
-});
-
 $SEARCH_BTN.addEventListener('click', function (event) {
 	let userInput = $USER_INPUT.value;
 
 	wipePreviousSearchItems();
-	hideTrendings();
-	hideSuggestions();
+	hideElement($TRENDINGS_SECTION);
+	hideElement($SUGGESTIONS_SECTION);
+	hideElement($MY_GIFOS_SECTION);
 	fetchUserInput(userInput);
 	wipeSearchInput();
 	autocompleteVisibility();
@@ -374,29 +414,29 @@ $SEARCH_BTN.addEventListener('click', function (event) {
 	event.preventDefault();
 });
 
+$MY_GIFOS_BTN.addEventListener('click', () => {
+	hideElement($SUGGESTIONS_SECTION);
+	hideElement($TRENDINGS_SECTION);
+	hideElement($RESULTS_SECTION);
+	showElement($MY_GIFOS_SECTION);
+});
+
 $USER_INPUT.addEventListener('input', function () {
 	fetchAutocompleteTags($USER_INPUT.value);
 	autocompleteVisibility();
 });
 
+$DAY_THEME_BTN.addEventListener('click', function () {
+	localStorage.setItem('GifosThemePreference', 'sailorDayTheme');
+	initializeTheme();
+});
+
+$NIGHT_THEME_BTN.addEventListener('click', function () {
+	localStorage.setItem('GifosThemePreference', 'sailorNightTheme');
+	initializeTheme();
+});
+
+initializeTheme();
 refreshSuggestions();
 fetchTrendings();
-
-/* 
--ENDPOINTS-
-	Search:
-	https://api.giphy.com/v1/gifs/search?api_key=8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc&q=&limit=25&offset=0
-
-	Trending:
-	https://api.giphy.com/v1/gifs/trending?api_key=8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc&limit=25
-
-	Random:
-	https://api.giphy.com/v1/gifs/random?api_key=8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc&tag=
-
-	Get by ID:
-	https://api.giphy.com/v1/gifs/?api_key=8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc
-
-	Get by IDs (comma separated):
-	https://api.giphy.com/v1/gifs/?api_key=8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc
-
-*/
+loadFromLocal();

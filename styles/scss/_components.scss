@@ -1,15 +1,12 @@
 .main-title {
 	height: 23px;
 	width: 100%;
-	background: $color-gradient-day;
-	box-shadow: inset 1px 1px $color-white, inset -1px -1px $color-darkblue;
 	box-sizing: border-box;
 	display: flex;
 }
 
 .main-title__text {
 	align-self: center;
-	color: $color-white;
 	font-family: $font-primary;
 	font-weight: 400;
 	font-size: $font-12;
@@ -44,49 +41,15 @@
 		margin: 8px 6.3px;
 	}
 
-	&__btns {
-		width: 419px;
-		display: flex;
-		flex-direction: row;
-		align-content: center;
-		justify-content: space-between;
-	}
-
 	&__dropdown {
 		height: 102px;
-		padding: 10px;
-		box-shadow: $BoxShadow-3;
-		background: $color-softgrey;
+		padding: 0 10px 10px 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		position: absolute;
 		z-index: 2;
 		width: 180px;
-	}
-
-	&__btn {
-		height: 36px;
-		width: 144px;
-		background: $color-softpink;
-		border: 1px solid $color-darkblue;
-		box-shadow: $BoxShadow-1;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: $color-darkblue;
-		font-family: $font-primary;
-		font-weight: 400;
-		font-size: $font-16;
-		line-height: $font-18;
-
-		&--dropdown {
-			width: 36px;
-		}
-	}
-
-	&__secondary-btn {
-		display: flex;
 	}
 
 	&__link {
@@ -102,21 +65,17 @@
 
 .search {
 	height: 99px;
-	background: $color-softgrey;
-	box-shadow: $BoxShadow-3-bold;
 
 	&-title {
 		height: 24px;
 		display: flex;
 		align-items: center;
-		background: $color-gradient-day;
 		margin: 2px;
 		position: relative;
 		top: 2px;
 
 		&__text {
 			margin-left: 6px;
-			color: $color-white;
 			font-family: $font-primary;
 			font-size: $font-14;
 			line-height: $font-18;
@@ -136,25 +95,10 @@
 		width: 1057px;
 		padding: 0 16px;
 		border: 1px solid #979797;
-		box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
 		font-family: $font-primary;
 		font-size: $font-16;
 		line-height: $font-22;
 		color: $color-midgrey;
-	}
-
-	&-btn {
-		width: 102px;
-		height: 36px;
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		background: $color-softgrey;
-		box-shadow: $BoxShadow-3;
-		color: $color-midgrey;
-		font-family: $font-primary;
-		font-size: $font-16;
-		line-height: $font-18;
 	}
 }
 
@@ -163,14 +107,9 @@
 	width: 1200px;
 	position: absolute;
 	padding: 17px 128px 6px 15px;
-	background: $color-softgrey;
-	box-shadow: $BoxShadow-3-bold;
 	z-index: 2;
 
 	&-tag {
-		box-shadow: $BoxShadow-3;
-		background: $color-tertiarywhite;
-		border: solid 1px $color-middarkgrey;
 		font-family: $font-primary;
 		font-size: $font-16;
 		padding-left: $font-16;
@@ -189,10 +128,6 @@
 		height: 34px;
 		padding: 0 7px;
 		margin-right: 8px;
-		box-shadow: $BoxShadow-2-bold;
-		background: $color-blue;
-		border: solid 1px $color-purple;
-		color: $color-white;
 		font-family: $font-primary;
 		font-size: $font-14;
 	}
@@ -200,7 +135,8 @@
 
 .tendencies,
 .today,
-.results {
+.results,
+.my-gifos {
 	margin-top: 64px;
 }
 
@@ -210,10 +146,6 @@
 	margin-bottom: 16px;
 	display: flex;
 	align-items: center;
-	background: #fffafe;
-	border: 1px solid #e6bbe2;
-	box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
-	color: $color-darkblue;
 	font-family: $font-primary;
 	font-weight: 400;
 	font-size: $font-14;
@@ -229,8 +161,7 @@
 	&__item {
 		width: 288px;
 		height: 313px;
-		background: #e6e6e6;
-		box-shadow: $BoxShadow-3-bold;
+		overflow: hidden;
 	}
 }
 
@@ -238,16 +169,15 @@
 	&-header {
 		height: 24px;
 		margin: 0 4px;
+		overflow: hidden;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background: $color-gradient-day;
 		position: relative;
 		top: 2px;
 
 		&__text {
 			margin: 0 3px;
-			color: $color-white;
 			font-family: $font-primary;
 			font-size: $font-14;
 			font-weight: 700;
@@ -257,7 +187,7 @@
 		&__img {
 			width: 16px;
 			height: 14px;
-			margin: 0 4px;
+			margin-right: 4px;
 			cursor: pointer;
 		}
 	}
@@ -270,78 +200,54 @@
 		left: 4px;
 		z-index: 1;
 	}
-
-	&__btn {
-		width: 81px;
-		height: 34px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		bottom: 46px;
-		left: 11px;
-		z-index: 2;
-		background: $color-blue;
-		border: 1px solid #4c2f99;
-		box-shadow: $BoxShadow-2-bold;
-		color: $color-white;
-		font-family: $font-primary;
-		font-size: $font-14;
-		font-weight: 400;
-		line-height: $font-18;
-		cursor: pointer;
-	}
 }
 
 // GIFS FORMATTING (RESUTLS AND TENDENCIES) ---------------------------------------------
 
+.tendencies-container,
+.results-container,
+.saved-container {
+	max-width: 1200px;
+	display: grid;
+	grid-auto-flow: dense;
+	gap: $font-10;
+	grid-template-columns: repeat(4, 1fr);
+}
+
 .gif {
-	width: 294px;
 	height: 304px;
+	padding: 4px;
 	display: flex;
-	margin-bottom: 8px;
 	position: relative;
 	justify-content: space-between;
-	background: #e6e6e6;
-	box-shadow: $BoxShadow-3-bold;
 
 	&:hover .gif__text {
 		visibility: visible;
 	}
 
 	&__img {
-		width: 286px;
+		width: 100%;
 		height: 296px;
 		object-fit: cover;
 		position: relative;
-		margin: auto;
 		align-self: center;
 	}
 
 	&__text {
-		width: 286px;
+		width: calc(100% - 8px);
 		height: 24px;
+		overflow: hidden;
 		position: absolute;
-		bottom: 0px;
+		bottom: 4px;
+		left: 4px;
 		align-items: center;
-		background: $color-gradient-day;
-		margin: 0 4px 4px 4px;
-		color: $color-white;
 		padding: 0 4px;
 		font-family: $font-primary;
 		font-weight: 700;
 		font-size: $font-14;
-		line-height: $font-24;
+		line-height: $font-28;
 		visibility: hidden;
 	}
-}
-
-.tendencies-container,
-.results-container,
-.saved-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
 }
 
 // CREATE GIFOS		--------------------------------------------------------------------
@@ -356,17 +262,13 @@
 	width: 684px;
 	position: relative;
 	margin: auto;
-	background: $color-softgrey;
-	box-shadow: $BoxShadow-3-bold;
 
 	&__title {
 		height: 24px;
 		width: 678px;
 		position: relative;
 		top: 3px;
-		background: $color-gradient-day;
 		margin: 3px 3px;
-		color: $color-white;
 		font-family: $font-primary;
 		font-weight: 700;
 		font-size: $font-14;
@@ -406,23 +308,13 @@
 	}
 }
 
-.bold {
-	font-weight: 700;
-}
-
-.italic {
-	font-style: italic;
-}
-
 .capture-window {
 	height: 548px;
 	width: 860px;
+	padding: 0 13px 0 4px;
 	position: relative;
 	display: flex;
 	margin: auto;
-	padding: 0 13px 0 4px;
-	background: $color-softgrey;
-	box-shadow: $BoxShadow-3-bold;
 
 	&__title {
 		height: 24px;
@@ -433,8 +325,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background: $color-gradient-day;
-		color: $color-white;
 		font-family: $font-primary;
 		font-weight: 700;
 		font-size: $font-14;
@@ -445,8 +335,6 @@
 		width: 838px;
 		height: 440px;
 		margin: 35px 1px 21px 8px;
-		border: 2px solid #979797;
-		box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
 		padding: 3px;
 		display: flex;
 		flex-direction: column;
@@ -471,12 +359,10 @@
 .success-window-container {
 	width: 721px;
 	height: 391px;
+	padding: 0 13px 0 4px;
 	position: relative;
 	display: flex;
 	margin: auto;
-	padding: 0 13px 0 4px;
-	background: $color-softgrey;
-	box-shadow: $BoxShadow-3-bold;
 }
 
 .success-window {
@@ -495,8 +381,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background: $color-gradient-day;
-	color: $color-white;
 	font-family: $font-primary;
 	font-weight: 700;
 	font-size: $font-14;
@@ -505,8 +389,6 @@
 
 .success-gif-container {
 	padding: 2px 2px 0 2px;
-	border: 1px solid #979797;
-	box-shadow: $BoxShadow-5-bold;
 }
 
 .column-left {
@@ -531,8 +413,6 @@
 }
 
 .video-container {
-	// width: 100%;
-	// height: 100%;
 	width: 833px;
 	height: 625px;
 }
@@ -543,12 +423,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: $font-primary;
+	font-size: $font-16;
+
+	color: $color-darkblue;
 	border: 2px solid #979797;
 	box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
 	background: #e6e6e6;
-	font-family: $font-primary;
-	font-size: $font-16;
-	color: $color-darkblue;
 }
 
 .action-buttons {
@@ -572,17 +453,6 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-}
-
-.preview-btn {
-	width: 20px;
-	height: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: $color-softpink;
-	border: solid 1px $color-darkblue;
-	box-shadow: $BoxShadow-1;
 }
 
 .preview-bar {
@@ -615,45 +485,116 @@
 	justify-content: space-between;
 }
 
-.capture-btn,
-.stop-btn {
+// OLD BUTTONS TO REFACTOR
+
+.nav__btns {
+	width: 419px;
 	display: flex;
 	flex-direction: row;
+	align-content: center;
+	justify-content: space-between;
+}
+
+.nav__secondary-btn {
+	display: flex;
+}
+
+.nav__secondary-btn:hover + .nav__dropdown,
+.nav__dropdown:hover {
+	display: flex;
+}
+
+.preview-btn {
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+//	BUTTONS
+.btn {
+	height: 36px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: $font-primary;
+	font-weight: 400;
+	font-size: $font-16;
+	line-height: $font-18;
+	cursor: pointer;
+}
+
+.btn:hover {
+	outline: dotted 1px $color-darkblue;
+	outline-offset: -4px;
+}
+
+.btn-link {
+	font-family: $font-primary;
+	font-weight: 400;
+	font-size: $font-16;
+	line-height: $font-18;
+	background: transparent;
+	border: transparent;
+	cursor: pointer;
+}
+
+.btn-link:hover {
+	outline-offset: 4px;
+}
+
+.btn-default {
+	width: 144px;
+}
+
+.btn-default-small {
+	width: 36px;
+}
+
+.btn-search {
+	width: 102px;
+	justify-content: space-around;
+}
+
+.btn-close {
+	width: 16px;
+	height: 14px;
+}
+
+.btn-more {
+	width: 81px;
+	height: 34px;
 }
 
 .btn-small {
 	width: 36px;
 }
 
-//	BUTTONS
-.btn-default {
-	width: 144px;
-	height: 36px;
+.btn-related {
+	width: 81px;
+	height: 34px;
+	font-size: $font-14;
+	position: relative;
+	bottom: 46px;
+	left: 11px;
+	z-index: 2;
+}
+
+.capture-btn,
+.stop-btn {
+	display: flex;
+	flex-direction: row;
 }
 
 .btn-adaptable {
 	width: 100%;
-	height: 36px;
 	margin-top: 12px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
 	background: $color-softpink;
 	border: 1px solid $color-darkblue;
 	box-shadow: $BoxShadow-1;
 	color: $color-darkblue;
-	font-family: $font-primary;
-	font-weight: 400;
-	font-size: $font-16;
-	line-height: $font-18;
-
-	&:hover::after {
-		content: '';
-		border: dotted 1px $color-darkblue;
-		width: 34%;
-		height: 26px;
-		position: absolute;
-	}
 }
 
 .btn-adaptable-secondary {
@@ -663,32 +604,20 @@
 	justify-content: flex-start;
 	align-items: center;
 
-	&:hover::after {
-		content: '';
-		border: dotted 1px $color-darkblue;
-		width: 87.2%;
-		height: 26px;
-		position: absolute;
-		left: 19px;
+	&:hover {
+		outline: dotted 1px $color-darkblue;
+		outline-offset: -4px;
 	}
 }
 
 .btn-theme {
-	box-shadow: $BoxShadow-3;
-	background: $color-tertiarywhite;
-	border: solid 1px $color-middarkgrey;
-	font-family: $font-primary;
-	font-size: $font-16;
 	padding-left: $font-16;
-	text-align: left;
+	justify-content: flex-start;
 }
 
-.nav__btn:hover::after {
-	content: '';
-	border: dotted 1px $color-darkblue;
-	width: 136px;
-	height: 28px;
-	position: absolute;
+.btn-play {
+	width: 20px;
+	height: 20px;
 }
 
 // EXTRA STYLES
@@ -712,10 +641,18 @@
 	justify-content: flex-end;
 }
 
-.parent-wide-format {
-	width: 592px;
+.margin-left {
+	margin-left: 16px;
 }
 
-.child-wide-format {
-	width: 586px;
+.parent-wide-format {
+	grid-column: span 2;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.italic {
+	font-style: italic;
 }

@@ -3,11 +3,13 @@ $color-grey: #999999;
 $color-softgrey: #e6e6e6;
 $color-blue: #4180f6;
 $color-darkblue: #110038;
+$color-darkblue-hover: #0e022b;
 $color-softpink: #f7c9f3;
 $color-pink: #ee2efe;
 $color-deadpink: #997d97;
 $color-white: #ffffff;
 $color-softred: #ff6161;
+$color-softred-hover: #e45959;
 $color-red: #993a3a;
 $color-black: #000000;
 
@@ -15,29 +17,40 @@ $color-deepblue: #284f99;
 $color-midgrey: #b4b4b4;
 $color-middarkgrey: #808080;
 $color-secondarywhite: #fff4fd;
+$color-secondarywhite-hover: #ece5eb;
 $color-tertiarywhite: #f0f0f0;
 $color-purple: #4c2f99;
-$color-background-white: #fff3fd;
 $color-highlight-white: #fffcfc;
 $color-pink-hover: #e6bbe2;
 
+$color-background-day: #fff3fd;
+$color-background-night: #1a003b;
+$color-darkgrey: #5c5c5c;
+$color-midblue: #2e32fb;
+$color-secondaryblue: #2124b3;
+$color-tertiaryblue: #3f00ec;
+
 $color-shadow-top: #8f8f8f;
-$color-shadow-top-secondary: #5c5c5c;
+
+$color-night-pink-1: #ee3efe;
+$color-night-pink-hover: #ce36db;
+$color-night-pink-border-1: #a72cb3;
 
 $color-gradient-day: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
 $color-gradient-night: linear-gradient(270deg, #ee2efe 0%, #2e32fb 100%);
 
 //  Box Shadow
-$BoxShadow-1: inset 1px 1px $color-white, inset -1px -1px $color-deadpink;
-$BoxShadow-2-bold: inset 2px 2px $color-white, inset -2px -2px $color-deepblue;
-$BoxShadow-3: inset 1px 1px $color-white, inset -1px -1px $color-midgrey;
-$BoxShadow-3-bold: inset 2px 2px $color-white, inset -2px -2px $color-midgrey;
-$BoxShadow-4: inset 1px 1px $color-white, inset -1px -1px $color-red;
-$BoxShadow-5-bold: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
+$BoxShadow-1: inset 1px 1px #ffffff, inset -1px -1px #997d97;
+$BoxShadow-2-bold: inset 2px 2px #ffffff, inset -2px -2px #284f99;
+$BoxShadow-3: inset 1px 1px #ffffff, inset -1px -1px #b4b4b4;
+$BoxShadow-3-bold: inset 2px 2px #ffffff, inset -2px -2px #b4b4b4;
+$BoxShadow-4: inset 1px 1px #ffffff, inset -1px -1px #993a3a;
+$BoxShadow-5-bold: inset 2px 2px #000000, inset -2px -2px #e6e6e6;
 
 //  Fonts
 $font-primary: 'Chakra Petch', sans-serif;
 
+$font-28: 1.75em;
 $font-24: 1.5em;
 $font-22: 1.375em;
 $font-20: 1.25em;
@@ -45,3 +58,4 @@ $font-18: 1.125em;
 $font-16: 1em;
 $font-14: 0.875em;
 $font-12: 0.75em;
+$font-10: 0.625em;

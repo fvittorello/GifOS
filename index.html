@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +8,8 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="styles/style.css" />
-		<link rel="stylesheet" href="styles/sailorDayTheme.css" />
-		<link rel="stylesheet" href="styles/sailorNightTheme.css" />
+		<link id="cache" rel="stylesheet" href="styles/sailorNightTheme.css" />
+		<link id="theme" rel="stylesheet" href="styles/sailorDayTheme.css" />
 		<title>GifOS</title>
 	</head>
 	<body>
@@ -24,18 +24,22 @@
 				<a href="index.html"><img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" /></a>
 
 				<ul class="nav__btns">
-					<li><a class="nav__btn" href="mygifos.html">Crear Guifos</a></li>
+					<li><a class="btn btn-default" href="mygifos.html">Crear Guifos</a></li>
 					<li>
 						<ul class="nav__secondary-btn">
-							<li class="nav__btn">Elegir tema</li>
-							<li class="nav__btn nav__btn--dropdown"><img src="assets/svg/dropdown.svg" alt="dropdown" /></li>
+							<li class="btn btn-default">Elegir tema</li>
+							<li class="btn btn-default-small"><img src="assets/svg/dropdown.svg" alt="dropdown" /></li>
 						</ul>
 						<div class="nav__dropdown hidden">
-							<button class="btn-adaptable btn-theme" type="button"><span class="underline">S</span>ailor Day</button>
-							<button class="btn-adaptable btn-theme" type="button">Sailor Night</button>
+							<button id="day-theme-btn" class="btn btn-adaptable btn-theme" type="button">
+								<span class="underline">S</span>ailor Day
+							</button>
+							<button id="night-theme-btn" class="btn btn-adaptable btn-theme" type="button">Sailor Night</button>
 						</div>
 					</li>
-					<li class="nav__link"><span class="underline">M</span>is Guifos</li>
+					<li class="nav__link">
+						<button id="myGifos_btn" class="btn-link" type="button"><span class="underline">M</span>is Guifos</button>
+					</li>
 				</ul>
 			</nav>
 			<div class="search">
@@ -51,7 +55,7 @@
 						autocomplete="off"
 						placeholder="Busca gifs, temas, busca lo que quieras..."
 					/>
-					<button class="search-btn" type="submit"><img src="assets/svg/lupa_inactive.svg" alt="lupa" /> Buscar</button>
+					<button class="btn btn-search" type="submit"><img src="assets/svg/lupa.svg" alt="lupa" /> Buscar</button>
 				</form>
 			</div>
 			<div class="autocomplete hidden"></div>
@@ -68,7 +72,7 @@
 								<img class="item-header__img" src="assets/svg/button3.svg" alt="close button" />
 							</div>
 							<img class="item__img" src="https://via.placeholder.com/280" alt="placeholder" />
-							<button class="item__btn" type="button">Ver más...</button>
+							<button class="btn btn-related item__btn" type="button">Ver más...</button>
 						</div>
 
 						<div class="today__item">
@@ -104,17 +108,7 @@
 					<header class="tendencies__title section-header">
 						<p>Tendencias:</p>
 					</header>
-					<div class="tendencies-container">
-						<!-- <div class="tendencies-item gif">
-							<img
-								class="gif__img"
-								src="https://media1.giphy.com/media/SGkufeMafyuBhIw796/giphy-preview.webp?cid=7e93e4cd6ffd165c4a9ffdd664eb7bd723d3b5075675db53&amp;rid=giphy-preview.webp"
-							/>
-							<div class="gif__text">
-								<p>texto de prueba</p>
-							</div>
-						</div> -->
-					</div>
+					<div class="tendencies-container"></div>
 				</section>
 
 				<section class="results hidden">
@@ -122,6 +116,13 @@
 						<p>Ejemplo de búsqueda (resultados)</p>
 					</header>
 					<div class="results-container"></div>
+				</section>
+
+				<section class="my-gifos hidden">
+					<header class="my-gifos-title section-header">
+						<p>Mis guifos</p>
+					</header>
+					<div id="loaded-gifs" class="saved-container"></div>
 				</section>
 			</main>
 		</div>

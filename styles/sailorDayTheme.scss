@@ -1,7 +1,7 @@
 @import 'scss/variables';
 
 body {
-	background: $color-background-white;
+	background: $color-background-day;
 }
 
 .main-title {
@@ -13,13 +13,116 @@ body {
 	color: $color-white;
 }
 
+.nav__dropdown {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3;
+}
+
+//	AGREGAR BOTONES	--------------------------------------
+.btn {
+	background: $color-softpink;
+	border: 1px solid $color-darkblue;
+	box-shadow: $BoxShadow-1;
+	color: $color-darkblue;
+}
+
+.btn:hover {
+	background: $color-pink-hover;
+}
+
+.btn-link {
+	color: $color-darkblue;
+}
+
+.btn-link:hover {
+	outline: dotted 1px $color-darkblue;
+}
+
+.btn-search {
+	background: $color-softpink;
+	box-shadow: $BoxShadow-1;
+	color: $color-darkblue;
+}
+
+.btn-related {
+	background: $color-blue;
+	border: 1px solid #4c2f99;
+	box-shadow: inset 2px 2px #ffffff, inset -2px -2px #284f99;
+	color: $color-white;
+}
+
+.btn-related:hover {
+	background: #3a72db;
+}
+
+.btn-red {
+	background: $color-softred;
+	border: 1px solid $color-darkblue;
+	box-shadow: inset 1px 1px #ffffff, inset -1px -1px #993a3a;
+	color: $color-white;
+}
+
+.btn-red:hover {
+	background: $color-softred-hover;
+}
+
+.btn-white {
+	background: $color-secondarywhite;
+	border: 1px solid $color-darkblue;
+	box-shadow: inset 1px 1px #ffffff, inset -1px -1px $color-deadpink;
+	color: $color-darkblue;
+}
+
+.btn-white:hover {
+	background: $color-secondarywhite-hover;
+}
+
+.btn-play:hover {
+	outline: none;
+}
+
+// --------------------------------------------------------
+
 .search {
 	background: $color-softgrey;
 	box-shadow: $BoxShadow-3-bold;
 }
 
+.search-input {
+	box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
+}
+
 .search-title {
 	background: $color-gradient-day;
+}
+
+.search-title__text {
+	color: $color-white;
+}
+
+.autocomplete {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.autocomplete-tag {
+	background: $color-tertiarywhite;
+	box-shadow: $BoxShadow-3;
+	border: solid 1px $color-middarkgrey;
+}
+
+.related__tag {
+	background: $color-blue;
+	box-shadow: $BoxShadow-2-bold;
+	border: solid 1px $color-purple;
+	color: $color-white;
+}
+
+.section-header {
+	background: #fffafe;
+	box-shadow: inset 2px 2px $color-deadpink, inset -2px -2px #e6dce4;
+	border: 1px solid #e6bbe2;
+	color: $color-darkblue;
 }
 
 .today__item {
@@ -29,6 +132,60 @@ body {
 
 .item-header {
 	background: $color-gradient-day;
+}
+
+.item-header__text {
+	color: $color-white;
+}
+
+.gif {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.gif__text {
+	background: $color-gradient-day;
+	color: $color-white;
+}
+
+.create-window {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.create-window__title {
+	background: $color-gradient-day;
+	color: $color-white;
+}
+
+.capture-window {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.capture-window__title {
+	background: $color-gradient-day;
+	color: $color-white;
+}
+
+.capture-window__display {
+	box-shadow: inset 2px 2px $color-black, inset -2px -2px $color-softgrey;
+	border: 1px solid #979797;
+}
+
+.success-window-container {
+	background: $color-softgrey;
+	box-shadow: $BoxShadow-3-bold;
+}
+
+.success-window__title {
+	background: $color-gradient-day;
+	color: $color-white;
+}
+
+.success-gif-container {
+	box-shadow: $BoxShadow-5-bold;
+	border: 1px solid #979797;
 }
 
 .preview-bar {
