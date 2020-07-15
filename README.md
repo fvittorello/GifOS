@@ -20,7 +20,8 @@ El proyecto consistió en maquetar una web en base a un diseño provisto por un 
 
 - HTML
 - CSS
-- Sass
+- Scss / Sass
+- Metodología de CSS [BEM](http://getbem.com/)
 - Vanilla Javascript
 - Integración de la Api de [Giphy](https://developers.giphy.com/)
 - Implementación de la librería [RecordRTC](https://recordrtc.org/)
