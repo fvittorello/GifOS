@@ -7,21 +7,26 @@
 			href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,700&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="./assets/img/favicon/favicon.ico" type="image/x-icon" id="favicon" />
+
+		<!-- Themes -->
 		<link rel="stylesheet" href="styles/style.css" />
 		<link id="cache" rel="stylesheet" href="styles/sailorNightTheme.css" />
 		<link id="theme" rel="stylesheet" href="styles/sailorDayTheme.css" />
 		<title>GifOS</title>
 	</head>
 	<body>
-		<div class="main-title">
-			<p class="main-title__text">
+		<header class="main-title">
+			<h1 class="main-title__text">
 				¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
-			</p>
-		</div>
+			</h1>
+		</header>
 
-		<div class="container">
+		<main class="container">
 			<nav class="nav">
-				<a href="index.html"><img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" /></a>
+				<a href="index.html"><img id="logo" class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" /></a>
 
 				<ul class="nav__btns">
 					<li><a class="btn btn-default" href="mygifos.html">Crear Guifos</a></li>
@@ -42,9 +47,9 @@
 					</li>
 				</ul>
 			</nav>
-			<div class="search">
+			<section class="search">
 				<div class="search-title">
-					<p class="search-title__text">Buscar</p>
+					<h2 class="search-title__text">Buscar</h2>
 				</div>
 				<form class="search-content" method="GET">
 					<label for="search-input"></label>
@@ -55,15 +60,17 @@
 						autocomplete="off"
 						placeholder="Busca gifs, temas, busca lo que quieras..."
 					/>
-					<button class="btn btn-search" type="submit"><img src="assets/svg/lupa.svg" alt="lupa" /> Buscar</button>
+					<button class="btn btn-search" type="submit">
+						<img id="search-icon" src="assets/svg/lupa.svg" alt="lupa" /> Buscar
+					</button>
 				</form>
-			</div>
+			</section>
 			<div class="autocomplete hidden"></div>
 			<div class="related"></div>
-			<main>
+			<div>
 				<section class="today">
 					<header class="today-title section-header">
-						<p>Hoy te sugerimos:</p>
+						<h2 class="section-header__title">Hoy te sugerimos:</h2>
 					</header>
 					<div class="today__container">
 						<div class="today__item">
@@ -106,26 +113,26 @@
 
 				<section class="tendencies">
 					<header class="tendencies__title section-header">
-						<p>Tendencias:</p>
+						<h2 class="section-header__title">Tendencias:</h2>
 					</header>
 					<div class="tendencies-container"></div>
 				</section>
 
 				<section class="results hidden">
 					<header class="results-title section-header">
-						<p>Ejemplo de búsqueda (resultados)</p>
+						<h2 class="section-header__title">Ejemplo de búsqueda (resultados)</h2>
 					</header>
 					<div class="results-container"></div>
 				</section>
 
 				<section class="my-gifos hidden">
 					<header class="my-gifos-title section-header">
-						<p>Mis guifos</p>
+						<h2 class="section-header__title">Mis guifos</h2>
 					</header>
 					<div id="loaded-gifs" class="saved-container"></div>
 				</section>
-			</main>
-		</div>
+			</div>
+		</main>
 
 		<script src="main.js"></script>
 	</body>

@@ -93,6 +93,14 @@ body {
   outline: none;
 }
 
+.btn:disabled,
+.btn:disabled:hover {
+  cursor: default;
+  background: #b4b4b4;
+  color: #8f8f8f;
+  outline: none;
+}
+
 .search {
   background: #b4b4b4;
   -webkit-box-shadow: inset 2px 2px #ffffff, inset -2px -2px #8f8f8f;

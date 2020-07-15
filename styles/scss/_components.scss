@@ -148,6 +148,13 @@
 	align-items: center;
 	font-family: $font-primary;
 	font-weight: 400;
+	font-size: $font-16;
+	line-height: $font-18;
+}
+
+.section-header__title {
+	font-family: $font-primary;
+	font-weight: 400;
 	font-size: $font-14;
 	line-height: $font-18;
 }
@@ -274,6 +281,13 @@
 		font-size: $font-14;
 		line-height: $font-24;
 		padding-left: 4px;
+	}
+
+	&__header-text {
+		font-family: $font-primary;
+		font-weight: 700;
+		font-size: $font-16;
+		line-height: $font-28;
 	}
 
 	&__icon {
@@ -655,4 +669,11 @@
 
 .italic {
 	font-style: italic;
+}
+
+.btn:disabled,
+.btn:disabled:hover {
+	cursor: default;
+	background: #b4b4b4;
+	outline: none;
 }

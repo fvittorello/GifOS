@@ -1,5 +1,3 @@
-'use strict';
-
 const $SEARCH_BTN = document.querySelector('.btn-search');
 const $USER_INPUT = document.querySelector('#search-input');
 const $RESULTS_SECTION = document.querySelector('.results');
@@ -19,6 +17,11 @@ const $MY_GIFOS_BTN = document.querySelector('#myGifos_btn');
 const $DAY_THEME_BTN = document.querySelector('#day-theme-btn');
 const $NIGHT_THEME_BTN = document.querySelector('#night-theme-btn');
 const $THEME_TAG = document.querySelector('#theme');
+const $BODY = document.querySelector('body');
+
+const $LOGO = document.querySelector('#logo');
+const $FAVICON = document.querySelector('#favicon');
+const $SEARCH_ICON = document.querySelector('#search-icon');
 
 const API_KEY = '8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc';
 const AUTOCOMPLETE_LIMIT = 5;
@@ -49,6 +52,25 @@ function initializeTheme() {
 	if (actualTheme !== `styles/${check}.css`) {
 		$THEME_TAG.setAttribute('href', `styles/${check}.css`);
 	}
+
+	changeImages(check);
+}
+
+function changeImages(theme) {
+	switch (theme) {
+		case 'sailorNightTheme':
+			$LOGO.src = './assets/img/gifOF_logo_dark.png';
+			$FAVICON.href = './assets/img/favicon/sailor_night.ico';
+			$SEARCH_ICON.src = 'assets/svg/lupa_light.svg';
+			break;
+
+		case 'sailorDayTheme':
+		default:
+			$LOGO.src = './assets/img/gifOF_logo.png';
+			$FAVICON.href = './assets/img/favicon/sailor_day.ico';
+			$SEARCH_ICON.src = 'assets/svg/lupa.svg';
+			break;
+	}
 }
 
 function localStorageThemeCheck() {
@@ -77,10 +99,18 @@ function loadFromLocal() {
 				createLoadedGif(gif, title);
 			})
 			.catch((error) => {
-				console.log('Error al intentar el fetch de gifs guardados');
+				console.error('Error al intentar el fetch de gifs guardados');
 				return error;
 			});
 	});
+}
+
+function disableButton(btn) {
+	btn.disabled = true;
+}
+
+function enableButton(btn) {
+	btn.disabled = false;
 }
 
 function gifWidthAdapter(parentTag, height, width) {
@@ -204,7 +234,7 @@ function createTrendingItem(imageSrc, url, title, gifHeight, gifWidth) {
 }
 
 function modifyResultsTitle(text) {
-	$RESULTS_TITLE.innerHTML = `<p>${text} (resultados)</p>`;
+	$RESULTS_TITLE.innerHTML = `<h2 class="section-header__title">${text} (resultados)</h2>`;
 }
 
 function createLoadedGif(localGif, tags) {
@@ -296,7 +326,7 @@ function fetchSuggestions(numberOfSuggestions) {
 				createSuggestionItem(imageSrc, url, title);
 			})
 			.catch((error) => {
-				console.log(`Something went wrong on the fetchSuggestions`);
+				console.error(`Something went wrong on the fetchSuggestions`);
 				return error;
 			});
 	}
@@ -319,7 +349,7 @@ function fetchTrendings() {
 			}
 		})
 		.catch((error) => {
-			console.log(`Something went wrong on the fetchTrendings`);
+			console.error(`Something went wrong on the fetchTrendings`);
 			return error;
 		});
 }
@@ -349,15 +379,17 @@ function fetchUserInput(userInput, offset) {
 			fetchSuggestionTags(userInput);
 		})
 		.catch((error) => {
-			console.log(`Something went wrong on the fetchUserInput`);
+			console.error(`Something went wrong on the fetchUserInput`);
 			return error;
 		});
 }
 
 function fetchAutocompleteTags(userInput) {
 	if (!userInput) {
+		disableButton($SEARCH_BTN);
 		return;
 	}
+	enableButton($SEARCH_BTN);
 	fetch('https://api.giphy.com/v1/gifs/search/tags?api_key=' + API_KEY + '&q=' + userInput)
 		.then((Response) => {
 			return Response.json();
@@ -374,7 +406,7 @@ function fetchAutocompleteTags(userInput) {
 			}
 		})
 		.catch((error) => {
-			console.log(`Something went wrong on the autocompleteTags fetch, ${error}`);
+			console.error(`Something went wrong on the autocompleteTags fetch, ${error}`);
 		});
 }
 
@@ -395,7 +427,7 @@ function fetchSuggestionTags(userSearchInput) {
 			}
 		})
 		.catch((error) => {
-			console.log(`Something went wrong on the fetchSuggestionTags`);
+			console.error(`Something went wrong on the fetchSuggestionTags`);
 			return error;
 		});
 }
@@ -440,3 +472,4 @@ initializeTheme();
 refreshSuggestions();
 fetchTrendings();
 loadFromLocal();
+disableButton($SEARCH_BTN);

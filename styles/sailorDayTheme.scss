@@ -81,6 +81,14 @@ body {
 	outline: none;
 }
 
+.btn:disabled,
+.btn:disabled:hover {
+	cursor: default;
+	background: #e6e6e6;
+	color: #b4b4b4;
+	outline: none;
+}
+
 // --------------------------------------------------------
 
 .search {

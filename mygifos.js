@@ -1,5 +1,3 @@
-'use strict';
-
 const $DROPDOWN_CONTAINER = document.querySelector('.nav__dropdown');
 const $PREVIEW_BAR_CONTAINER = document.getElementById('preview-container');
 const $LOCAL_GIFS_CONTAINER = document.getElementById('loaded-gifs');
@@ -25,6 +23,10 @@ const $STREAM_WINDOW = document.getElementById('stream-window');
 const $UPLOAD_WINDOW = document.getElementById('upload-window');
 const $SUCCESS_WINDOW = document.getElementById('success-window');
 
+const $LOGO = document.querySelector('#logo');
+const $FAVICON = document.querySelector('#favicon');
+const $CAMERA_ICON = document.querySelector('#camera-icon');
+
 const API_KEY_sec = '8pqxEvveACSzdk5vHEf0pTNeDOC2NYOc';
 
 let streamContainer;
@@ -47,6 +49,25 @@ function initializeTheme() {
 	const check = localStorageThemeCheck();
 	if (actualTheme !== `styles/${check}.css`) {
 		$THEME_TAG.setAttribute('href', `styles/${check}.css`);
+	}
+
+	changeImages(check);
+}
+
+function changeImages(theme) {
+	switch (theme) {
+		case 'sailorNightTheme':
+			$LOGO.src = 'assets/img/gifOF_logo_dark.png';
+			$FAVICON.href = 'assets/img/favicon/sailor_night.ico';
+			$CAMERA_ICON.src = 'assets/svg/camera_light.svg';
+			break;
+
+		case 'sailorDayTheme':
+		default:
+			$LOGO.src = 'assets/img/gifOF_logo.png';
+			$FAVICON.href = 'assets/img/favicon/sailor_day.ico';
+			$CAMERA_ICON.src = 'assets/svg/camera_light.svg';
+			break;
 	}
 }
 
@@ -114,7 +135,7 @@ function loadFromLocal() {
 				createLoadedGif(gif, title);
 			})
 			.catch((error) => {
-				console.log(`Something went wrong trying to bring the stored gifs, ${error}`);
+				console.error(`Something went wrong trying to bring the stored gifs, ${error}`);
 			});
 	});
 }
@@ -241,8 +262,8 @@ function uploadGif(userGifBlob) {
 			showElement($SUCCESS_WINDOW);
 		})
 		.catch((error) => {
-			alert('Algo salió mal, más información en el console.log');
-			console.log(error);
+			alert('Algo salió mal, más información en la consola del inspector');
+			console.error(error);
 		});
 }
 
@@ -253,11 +274,10 @@ function searchGifByID(gifID) {
 		})
 		.then((result) => {
 			const gif = result.data.images.original.url;
-			console.log(gif);
 			return gif;
 		})
 		.catch((error) => {
-			console.log(`Something went wrong on the searchGifByID fetch, ${error}`);
+			console.error(`Something went wrong on the searchGifByID fetch, ${error}`);
 		});
 }
 
@@ -290,8 +310,8 @@ function downloadCreatedGif() {
 			document.body.removeChild(saveImg);
 		})
 		.catch((error) => {
-			alert('Algo salio mal al intentar descargar el archivo, revisa el console.log para mas información');
-			console.log(error);
+			alert('Algo salio mal al intentar descargar el archivo, revisa la consola del inspector para mas información');
+			console.error(error);
 		});
 }
 
@@ -364,9 +384,7 @@ $NIGHT_THEME_BTN.addEventListener('click', function () {
 initializeTheme();
 loadFromLocal();
 
-//////////////////////
-//	Timer Feature	//
-//////////////////////
+//	Timer Feature
 function initTimer() {
 	let initialDate = Date.now();
 

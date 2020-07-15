@@ -7,21 +7,31 @@
 			href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,700&display=swap"
 			rel="stylesheet"
 		/>
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="./assets/img/favicon/sailor_day.ico" type="image/x-icon" id="favicon" />
+
+		<!-- Themes -->
 		<link rel="stylesheet" href="styles/style.css" />
 		<link id="cache" rel="stylesheet" href="styles/sailorNightTheme.css" />
 		<link id="theme" rel="stylesheet" href="styles/sailorDayTheme.css" />
 		<title>GifOS - mis Gifos</title>
 	</head>
 	<body>
-		<div class="main-title">
-			<p class="main-title__text">
+		<header class="main-title">
+			<h1 class="main-title__text">
 				¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
-			</p>
-		</div>
+			</h1>
+		</header>
 
 		<div class="container">
 			<nav class="nav">
-				<a href="index.html"><img class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" /></a>
+				<div class="nav__container">
+					<a class="nav__return" href="index.html"
+						><img src="assets/svg/arrow.svg" alt="Flecha hacia la izquierda"
+					/></a>
+					<a href="index.html"><img id="logo" class="nav__logo" src="assets/img/gifOF_logo.png" alt="gifOS Logo" /></a>
+				</div>
 
 				<ul class="nav__btns">
 					<li><a class="btn btn-default" href="mygifos.html">Crear Guifos</a></li>
@@ -46,7 +56,7 @@
 			<section class="create-gifos">
 				<div id="create-window" class="create-window">
 					<div class="create-window__title">
-						<p>Crear Guifos</p>
+						<h2 class="create-window__header-text">Crear Guifos</h2>
 					</div>
 					<img class="create-window__icon" src="assets/img/window_img.png" alt="Window icon" />
 					<h3 class="create-window__header">Aquí podrás crear tus propios guifos</h3>
@@ -62,14 +72,14 @@
 					<p class="create-window__text"><span class="bold">4)</span> Listo para subir y compartir!</p>
 					<p class="create-window__text">¿Quieres comenzar a crear tu <span class="bold italic">guifo</span> ahora?</p>
 					<div class="create-window__buttons">
-						<a href="index.html"><button class="btn btn-default" type="button">Cancelar</button></a>
+						<a href="index.html" class="btn btn-default">Cancelar</a>
 						<button id="streamBtn" class="btn btn-default margin-left" type="button">Comenzar</button>
 					</div>
 				</div>
 
 				<div id="stream-window" class="capture-window hidden">
 					<div class="capture-window__title">
-						<p>Un Chequeo Antes de Empezar</p>
+						<h2 class="create-window__header-text">Un Chequeo Antes de Empezar</h2>
 						<img src="assets/svg/button3.svg" alt="cross button" />
 					</div>
 					<div class="capture-window__display">
@@ -106,7 +116,7 @@
 							</div>
 							<div id="startBtn" class="capture-btn hidden">
 								<div class="btn btn-default-small">
-									<img src="assets/svg/camera.svg" alt="camera icon" />
+									<img id="camera-icon" src="assets/svg/camera.svg" alt="camera icon" />
 								</div>
 								<button class="btn btn-default" type="button">Capturar</button>
 							</div>
@@ -126,12 +136,12 @@
 
 				<div id="upload-window" class="capture-window hidden">
 					<div class="capture-window__title">
-						<p>Subiendo Guifo</p>
+						<h2 class="create-window__header-text">Subiendo Guifo</h2>
 						<img src="assets/svg/button3.svg" alt="cross button" />
 					</div>
 					<div class="capture-window__display">
 						<img src="assets/img/globe_img.png" alt="globo terraqueo" />
-						<h4>Estamos subiendo tu guifo...</h4>
+						<h3>Estamos subiendo tu guifo...</h3>
 						<div></div>
 						<p>Tiempo restante <span class="line-through">38 años</span> algunos minutos</p>
 					</div>
@@ -146,7 +156,7 @@
 
 				<div id="success-window" class="success-window-container hidden">
 					<div class="success-window__title">
-						<p>Guifo Subido Con Éxito</p>
+						<h2 class="create-window__header-text">Guifo Subido Con Éxito</h2>
 						<img src="assets/svg/button3.svg" alt="cross button" />
 					</div>
 					<div class="success-window">
@@ -174,7 +184,7 @@
 
 			<section class="my-gifos">
 				<header class="my-gifos-title section-header">
-					<p>Mis guifos</p>
+					<h2 class="section-header__title">Mis guifos</h2>
 				</header>
 				<div id="loaded-gifs" class="saved-container"></div>
 			</section>

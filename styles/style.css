@@ -239,8 +239,6 @@ label {
 
 body {
   background: #fff3fd;
-  -webkit-transition: all ease 0.2s;
-  transition: all ease 0.2s;
 }
 
 .main-title {
@@ -435,6 +433,13 @@ body {
           align-items: center;
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
+  font-size: 1em;
+  line-height: 1.125em;
+}
+
+.section-header__title {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
   font-size: 0.875em;
   line-height: 1.125em;
 }
@@ -575,6 +580,13 @@ body {
   font-size: 0.875em;
   line-height: 1.5em;
   padding-left: 4px;
+}
+
+.create-window__header-text {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  line-height: 1.75em;
 }
 
 .create-window__icon {
@@ -1086,5 +1098,12 @@ body {
 
 .italic {
   font-style: italic;
+}
+
+.btn:disabled,
+.btn:disabled:hover {
+  cursor: default;
+  background: #b4b4b4;
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */
