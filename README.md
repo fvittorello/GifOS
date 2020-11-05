@@ -2,6 +2,8 @@
 
 ### [Live view](https://fvittorello.github.io/gifOS)
 
+![gifos web preview](https://fvittorello.github.io/assets/md/gifos/mockup_gifos.jpg)
+
 Trabajo #2 del curso de Desarrollo Web Full Stack de Acamica.
 
 El proyecto consistió en maquetar una web en base a un diseño provisto por un Diseñador UI/UX de Acamica sin utilizar librerías para el maquetado de la misma, y darle funcionalidades mediante vanilla Javascript y la librería RecordRTC para la grabación de gifs del usuario.
